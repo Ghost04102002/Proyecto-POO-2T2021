@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Medidores.Medidores;
 import java.time.LocalDateTime;
 
 /**
@@ -18,6 +19,19 @@ public class Factura {
      */
     
     private LocalDateTime fecha_emision;
+    private Medidores medidor;
+    private Plan_Energia Plan; 
     
-    public Factura(){}
+    public Factura(Medidores medidor){
+        this.fecha_emision = LocalDateTime.now();
+    }
+    
+    public void FinalizarFactura(){
+    
+    }
+    
+    @Override
+    public String toString(){
+        return "";
+    }
 }

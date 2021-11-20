@@ -6,6 +6,7 @@
 package Usuario;
 import Medidores.Medidores;
 import Modelo.Factura;
+import java.util.ArrayList;
 
 
 /**
@@ -23,8 +24,12 @@ public class Abonados extends Usuario{
         return Medidores;
     }
     
-    public Factura ConsultarFactura(){
-        return Factura;
+    public ArrayList<Factura> ConsultarFactura(){
+        return null;
     }
+    
+    public ArrayList<Factura> ConsultarHistoricoFacturado(){
+        return null;
+    } 
     
 }

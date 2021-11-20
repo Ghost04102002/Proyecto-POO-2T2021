@@ -5,10 +5,21 @@
  */
 package Usuario;
 
+import Medidores.Medidores;
+import Modelo.Plan_Energia;
+
 /**
  *
  * @author malav
  */
 public class Administradores extends Usuario{
+    
+    private String nombreAbonado;
+    private String cedulaAbonado;
+    private String correoAbonado;
+    private String direccionInstalarMedidor;
+    private Medidores tipoMedidor;
+    private Plan_Energia tipoPlan;
+    
     
 }

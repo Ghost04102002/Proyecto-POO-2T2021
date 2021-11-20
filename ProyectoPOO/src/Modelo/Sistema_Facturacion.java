@@ -21,4 +21,11 @@ public class Sistema_Facturacion {
     private ArrayList<Medidores> medidores;
     private ArrayList<Usuario> usuarios;
     
+    public Usuario buscarUsuario(String user){
+        return null;
+    }
+    
+    public Medidores buscarMedidor(String codigo){
+        return null;
+    }
 }

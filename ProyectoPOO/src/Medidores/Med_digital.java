@@ -5,10 +5,18 @@
  */
 package Medidores;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author malav
  */
 public class Med_digital extends Medidores{
+
+    @Override
+    public double CalcularValorPagar(LocalDateTime fechaAccion) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

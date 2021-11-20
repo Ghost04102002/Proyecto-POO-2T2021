@@ -7,6 +7,8 @@ package Medidores;
 
 import Modelo.Plan_Energia;
 import Provincia.Provincia;
+import java.time.LocalDateTime;
+import java.util.*;
 
 /**
  *
@@ -20,4 +22,7 @@ public abstract class Medidores {
     private String codigo;
     private Plan_Energia plan;
     private Provincia provincia;
+    private double consumo;
+    
+    public abstract double CalcularValorPagar(LocalDateTime fechaAccion);
 }

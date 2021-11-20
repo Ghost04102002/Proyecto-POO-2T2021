@@ -11,4 +11,29 @@ package Usuario;
  */
 public class Operarios extends Usuario{
     
+    private String codigo;
+
+    /**
+     *
+     * @return
+     */
+    public String getCodigo() {
+        return codigo;
+    }
+
+    /**
+     *
+     * @param codigo
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    
+    /**
+     *
+     * @param codigo
+     */
+    public void RegistrarMedicion(String codigo){
+        
+    }
 }
