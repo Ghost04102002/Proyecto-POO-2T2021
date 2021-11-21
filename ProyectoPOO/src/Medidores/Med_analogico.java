@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  *
  * @author James Malavé
  */
-public class Med_analogico extends Medidores {
+public class Med_analogico extends Medidor {
 
     @Override
     public double CalcularValorPagar(LocalDateTime fechaAccion) {

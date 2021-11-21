@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Medidores.Medidores;
+import Medidores.Medidor;
 import java.time.LocalDateTime;
 
 /**
@@ -19,7 +19,7 @@ public class Factura {
      */
     
     private LocalDateTime fecha_emision;
-    private Medidores medidor;
+    private Medidor medidor;
     private Plan_Energia Plan;
     private String codigo;
 
@@ -31,11 +31,11 @@ public class Factura {
         this.fecha_emision = fecha_emision;
     }
 
-    public Medidores getMedidor() {
+    public Medidor getMedidor() {
         return medidor;
     }
 
-    public void setMedidor(Medidores medidor) {
+    public void setMedidor(Medidor medidor) {
         this.medidor = medidor;
     }
 
@@ -55,7 +55,7 @@ public class Factura {
         this.codigo = codigo;
     }
     
-    public Factura(Medidores medidor){
+    public Factura(Medidor medidor){
         this.fecha_emision = LocalDateTime.now();
     }
     

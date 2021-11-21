@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package Usuario;
-import Modelo.Sistema_Facturacion;
-import Medidores.Medidores;
+import Medidores.*;
+import Modelo.Sistema;
+import Medidores.Medidor;
 import Modelo.Factura;
 import java.util.ArrayList;
 
@@ -19,7 +20,8 @@ public class Abonados extends Usuario{
      * Variables de Instancia
      */
     private ArrayList<Factura> facturas;
-    private ArrayList<Medidores> medidores;
+    private ArrayList<Medidor> medidores;
+    private Sistema sis;
 
     public ArrayList<Factura> getFacturas() {
         return facturas;
@@ -29,11 +31,11 @@ public class Abonados extends Usuario{
         this.facturas = facturas;
     }
 
-    public ArrayList<Medidores> getMedidores() {
+    public ArrayList<Medidor> getMedidores() {
         return medidores;
     }
 
-    public void setMedidores(ArrayList<Medidores> medidores) {
+    public void setMedidores(ArrayList<Medidor> medidores) {
         this.medidores = medidores;
     }
     
@@ -42,18 +44,36 @@ public class Abonados extends Usuario{
         System.out.printf("%s%20s%20s%n","Número Factura","Fecha Emisión"
                 , "Código Medidor");
         for(Factura fac: facturas){
-            System.out.printf("%4d%20.2f%20s%n",fac.getCodigo(),
-                    fac.getFecha_emision(),fac.getMedidor().getCodigo());
-            if(fac.getCodigo().equals(codigo)){
-                System.out.println(fac.toString());
-            }else{
-                System.out.println("Factura no encontrada");
+            if(fac!=null){
+                System.out.printf("%4d%20.2f%20s%n",fac.getCodigo(),
+                        fac.getFecha_emision(),fac.getMedidor().getCodigo());
             }
+        }
+        Factura en = sis.buscarFactura(codigo);
+        if(en!=null){
+            en.toString();
+        }else{
+            System.out.println("Factura no encontrada");
         }
     }
     
-    public ArrayList<Factura> ConsultarHistoricoFacturado(){
-        return null;
+    public void ConsultarHistoricoFacturado(String codigo){
+        System.out.println("Medidores Asociados");
+        System.out.printf("%s%20s%20s%n","Código Medidor","Tipo Medidor"
+                ,"Nombre del Plan");
+        for(Medidor med: medidores){
+            if(med!=null){
+                System.out.printf("4d%20.2f%20s%n",med.getCodigo(),
+                        ((Med_digital)med).getMedidor(),med.getPlan().getNombre());       
+            }
+        }
+        Medidor med = sis.buscarMedidor(codigo);
+        if(med!=null){
+            med.toString();
+        }else{
+            System.out.println("Medidor no encontrado");
+        }
     } 
     
+    public void ConsultarConsumoPorHora(){}
 }

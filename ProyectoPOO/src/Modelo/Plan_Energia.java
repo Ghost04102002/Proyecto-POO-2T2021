@@ -23,6 +23,14 @@ public class Plan_Energia {
     private double costokwporhora;
     private ArrayList<Horario_pico> pico;
 
+    public TipoPlan getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(TipoPlan nombre) {
+        this.nombre = nombre;
+    }
+    
     public double getCargo_base() {
         return cargo_base;
     }

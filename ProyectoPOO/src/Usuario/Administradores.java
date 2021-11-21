@@ -5,7 +5,7 @@
  */
 package Usuario;
 
-import Medidores.Medidores;
+import Medidores.Medidor;
 import Modelo.Plan_Energia;
 
 /**
@@ -18,7 +18,7 @@ public class Administradores extends Usuario{
     private String cedulaAbonado;
     private String correoAbonado;
     private String direccionInstalarMedidor;
-    private Medidores tipoMedidor;
+    private Medidor tipoMedidor;
     private Plan_Energia tipoPlan;
 
     public String getNombreAbonado() {
@@ -53,11 +53,11 @@ public class Administradores extends Usuario{
         this.direccionInstalarMedidor = direccionInstalarMedidor;
     }
 
-    public Medidores getTipoMedidor() {
+    public Medidor getTipoMedidor() {
         return tipoMedidor;
     }
 
-    public void setTipoMedidor(Medidores tipoMedidor) {
+    public void setTipoMedidor(Medidor tipoMedidor) {
         this.tipoMedidor = tipoMedidor;
     }
 

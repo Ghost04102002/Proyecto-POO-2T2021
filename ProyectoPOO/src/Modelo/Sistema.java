@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Medidores.Medidores;
+import Medidores.Medidor;
 import Usuario.Usuario;
 import java.util.ArrayList;
 
@@ -13,12 +13,13 @@ import java.util.ArrayList;
  *
  * @author James Malavé
  */
-public class Sistema_Facturacion {
+public class Sistema {
     /**
      * variables de intancia
      */
     private ArrayList<Plan_Energia> planes;
-    private ArrayList<Medidores> medidores;
+    private ArrayList<Medidor> medidores;
+    private ArrayList<Factura> facturas;
     private ArrayList<Usuario> usuarios;
 
     public ArrayList<Plan_Energia> getPlanes() {
@@ -29,11 +30,11 @@ public class Sistema_Facturacion {
         this.planes = planes;
     }
 
-    public ArrayList<Medidores> getMedidores() {
+    public ArrayList<Medidor> getMedidores() {
         return medidores;
     }
 
-    public void setMedidores(ArrayList<Medidores> medidores) {
+    public void setMedidores(ArrayList<Medidor> medidores) {
         this.medidores = medidores;
     }
 
@@ -44,8 +45,16 @@ public class Sistema_Facturacion {
     public void setUsuarios(ArrayList<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
-        
-    public Sistema_Facturacion(){}
+    
+    /**
+     * Constructor vacio, inicializa las variables
+     */
+    public Sistema(){
+        this.usuarios = new ArrayList<>();
+        this.planes = new ArrayList<>();
+        this.medidores = new ArrayList<>();
+        this.facturas = new ArrayList<>();
+    }
     
     
     /**
@@ -55,8 +64,10 @@ public class Sistema_Facturacion {
      */
     public Usuario buscarUsuario(String user){
         for(Usuario us: usuarios){
-            if(us.getNombre_usu().equals(user)){
-                return us;
+            if(us!=null){
+                if(us.getNombre_usu().equals(user)){
+                    return us;
+                }
             }
         }
         return null;
@@ -67,10 +78,28 @@ public class Sistema_Facturacion {
      * @param codigo
      * @return
      */
-    public Medidores buscarMedidor(String codigo){
-        for(Medidores med : medidores){
-            if(med.getCodigo().equals(codigo)){
-                return med;
+    public Medidor buscarMedidor(String codigo){
+        for(Medidor med : medidores){
+            if(med!=null){
+                if(med.getCodigo().equals(codigo)){
+                    return med;
+                }    
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Busca Factura ingresado por parametro en el sistema
+     * @param codigo
+     * @return
+     */
+    public Factura buscarFactura(String codigo){
+        for(Factura fac: facturas){
+            if(fac!=null){
+                if(fac.getCodigo().equals(codigo)){
+                    return fac;
+                }
             }
         }
         return null;

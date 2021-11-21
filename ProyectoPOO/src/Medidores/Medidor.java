@@ -14,7 +14,7 @@ import java.util.*;
  *
  * @author James Malavé
  */
-public abstract class Medidores {
+public abstract class Medidor {
     /**
      * Variables de instancia
      */
@@ -56,9 +56,9 @@ public abstract class Medidores {
         this.consumo = consumo;
     }
     
-    public Medidores(String codigo, String plan, Provincia provincia){}
+    public Medidor(String codigo, String plan, Provincia provincia){}
     
-    public Medidores(){}
+    public Medidor(){}
     
     public abstract double CalcularValorPagar(LocalDateTime fechaAccion);
 }
