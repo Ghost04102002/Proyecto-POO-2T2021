@@ -56,5 +56,9 @@ public abstract class Medidores {
         this.consumo = consumo;
     }
     
+    public Medidores(String codigo, String plan, Provincia provincia){}
+    
+    public Medidores(){}
+    
     public abstract double CalcularValorPagar(LocalDateTime fechaAccion);
 }
