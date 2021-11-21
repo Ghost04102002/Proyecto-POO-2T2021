@@ -7,7 +7,7 @@ package Usuario;
 
 /**
  *
- * @author malav
+ * @author James Malavé
  */
 public class Operarios extends Usuario{
     

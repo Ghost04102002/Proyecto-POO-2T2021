@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author malav
+ * @author James Malavé
  */
 public class Abonados extends Usuario{
     /**

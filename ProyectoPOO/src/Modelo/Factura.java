@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author malav
+ * @author James Malavé
  */
 public class Factura {
     
@@ -21,6 +21,32 @@ public class Factura {
     private LocalDateTime fecha_emision;
     private Medidores medidor;
     private Plan_Energia Plan; 
+
+    public LocalDateTime getFecha_emision() {
+        return fecha_emision;
+    }
+
+    public void setFecha_emision(LocalDateTime fecha_emision) {
+        this.fecha_emision = fecha_emision;
+    }
+
+    public Medidores getMedidor() {
+        return medidor;
+    }
+
+    public void setMedidor(Medidores medidor) {
+        this.medidor = medidor;
+    }
+
+    public Plan_Energia getPlan() {
+        return Plan;
+    }
+
+    public void setPlan(Plan_Energia Plan) {
+        this.Plan = Plan;
+    }
+    
+    
     
     public Factura(Medidores medidor){
         this.fecha_emision = LocalDateTime.now();

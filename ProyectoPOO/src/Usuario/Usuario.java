@@ -7,7 +7,7 @@ package Usuario;
 
 /**
  *
- * @author malav
+ * @author James Malavé
  */
 public abstract class Usuario {
     /**

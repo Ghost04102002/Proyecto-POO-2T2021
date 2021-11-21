@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author malav
+ * @author James Malavé
  */
 public class Med_digital extends Medidores{
 

@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author malav
+ * @author James Malavé
  */
 class Horario_pico {
     
@@ -19,5 +19,22 @@ class Horario_pico {
     
     private LocalDateTime horaInicio;
     private LocalDateTime horaFin;
+
+    public LocalDateTime getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(LocalDateTime horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public LocalDateTime getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(LocalDateTime horaFin) {
+        this.horaFin = horaFin;
+    }
+    
     
 }

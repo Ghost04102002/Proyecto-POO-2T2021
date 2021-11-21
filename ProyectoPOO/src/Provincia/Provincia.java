@@ -7,7 +7,7 @@ package Provincia;
 
 /**
  *
- * @author malav
+ * @author James Malavé
  */
 public enum Provincia {
     Azuay,Bolivar,Caniar,Carchi,Chimborazo,Cotopaxi,ElOro,Esmeralda,Galapagos,

@@ -7,7 +7,7 @@ package Interfaz;
 
 /**
  *
- * @author malav
+ * @author James Malavé
  */
 public class Interfaz {
     

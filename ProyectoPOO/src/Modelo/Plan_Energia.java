@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author malav
+ * @author James Malavé
  */
 public class Plan_Energia {
     /**
@@ -22,5 +22,45 @@ public class Plan_Energia {
     private ArrayList<Provincia> provincias;
     private double costokwporhora;
     private ArrayList<Horario_pico> pico;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getCargo_base() {
+        return cargo_base;
+    }
+
+    public void setCargo_base(double cargo_base) {
+        this.cargo_base = cargo_base;
+    }
+
+    public ArrayList<Provincia> getProvincias() {
+        return provincias;
+    }
+
+    public void setProvincias(ArrayList<Provincia> provincias) {
+        this.provincias = provincias;
+    }
+
+    public double getCostokwporhora() {
+        return costokwporhora;
+    }
+
+    public void setCostokwporhora(double costokwporhora) {
+        this.costokwporhora = costokwporhora;
+    }
+
+    public ArrayList<Horario_pico> getPico() {
+        return pico;
+    }
+
+    public void setPico(ArrayList<Horario_pico> pico) {
+        this.pico = pico;
+    }
     
 }
