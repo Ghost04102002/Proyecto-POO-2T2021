@@ -9,6 +9,8 @@ package Modelo;
  *
  * @author James Malavé
  */
+
 public enum TipoPlan {
-    
+    COMERCIAL, 
+    RESIDENCIAL
 }

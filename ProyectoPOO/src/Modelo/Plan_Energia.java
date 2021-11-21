@@ -17,19 +17,11 @@ public class Plan_Energia {
      * variables de instancia
      */
     
-    private String nombre;
+    private TipoPlan nombre;
     private double cargo_base;
     private ArrayList<Provincia> provincias;
     private double costokwporhora;
     private ArrayList<Horario_pico> pico;
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public double getCargo_base() {
         return cargo_base;
@@ -62,5 +54,14 @@ public class Plan_Energia {
     public void setPico(ArrayList<Horario_pico> pico) {
         this.pico = pico;
     }
+    
+    public Plan_Energia(TipoPlan nombre, ArrayList<Provincia> provincias){
+        this.nombre = nombre;
+        this.provincias = provincias;
+    }
+    
+    public Plan_Energia(){}
+    
+    
     
 }

@@ -44,14 +44,36 @@ public class Sistema_Facturacion {
     public void setUsuarios(ArrayList<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
+        
+    public Sistema_Facturacion(){}
     
     
-    
+    /**
+     * Buscar el Usuario ingresado por parametro en el sistema
+     * @param user
+     * @return
+     */
     public Usuario buscarUsuario(String user){
+        for(Usuario us: usuarios){
+            if(us.getNombre_usu().equals(user)){
+                return us;
+            }
+        }
         return null;
     }
     
+    /**
+     * Buscar el Medidor ingresado por parametro en el sistema
+     * @param codigo
+     * @return
+     */
     public Medidores buscarMedidor(String codigo){
+        for(Medidores med : medidores){
+            if(med.getCodigo().equals(codigo)){
+                return med;
+            }
+        }
         return null;
     }
+    
 }

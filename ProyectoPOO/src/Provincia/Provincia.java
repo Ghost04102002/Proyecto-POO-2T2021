@@ -10,8 +10,28 @@ package Provincia;
  * @author James Malavé
  */
 public enum Provincia {
-    Azuay,Bolivar,Caniar,Carchi,Chimborazo,Cotopaxi,ElOro,Esmeralda,Galapagos,
-    Guayas, Imbabura,Loja,LosRios,Manabi,MoronaSantiago,Napo,Orellana,Pastaza,
-    Pichincha,SantaElena,SantoDomingoDeLosTsachilas,Sucumbios,Tungurahua,
-    ZamoraChinchipe;
+    AZUAY,
+    BOLIVAR,
+    CANIAR,
+    CARCHI,
+    CHIMBORAZO,
+    COTOPAXI,
+    ELORO,
+    ESMERALDA,
+    GALAPAGOS,
+    GUAYAS,
+    IMBABURA,
+    LOJA,
+    LOSRIOS,
+    MANABI,
+    MORONASANTIAGO,
+    NAPO,
+    ORELLANA,
+    PASTAZA,
+    PICHINCHA,
+    SANTAELENA,
+    SANTODOMINGODELOSTSACHILAS,
+    SUCUMBIOS,
+    TUNGURAHUA,
+    ZAMORACHINCHUPE;
 }

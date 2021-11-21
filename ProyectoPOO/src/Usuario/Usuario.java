@@ -16,25 +16,9 @@ public abstract class Usuario {
     
     private String nombre_usu;
     private String contrasema;
-    
-    /**
-     * Constructores
-     * @param nombre_usu
-     * @param contrasema
-     */
-    
-    public Usuario(String nombre_usu, String contrasema){
-        this.nombre_usu = nombre_usu;
-        this.contrasema = contrasema;
-    }
-    
-    /**
-     *
-     */
-    public Usuario(){}
 
     /**
-     *
+     * 
      * @return 
      */
     public String getNombre_usu() {
@@ -64,4 +48,20 @@ public abstract class Usuario {
     public void setContrasema(String contrasema) {
         this.contrasema = contrasema;
     }
+      
+    /**
+     * Constructores
+     * @param nombre_usu
+     * @param contrasema
+     */
+    
+    public Usuario(String nombre_usu, String contrasema){
+        this.nombre_usu = nombre_usu;
+        this.contrasema = contrasema;
+    }
+    
+    /**
+     * Constructor vacio
+     */
+    public Usuario(){}
 }

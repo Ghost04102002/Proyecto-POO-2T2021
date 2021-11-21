@@ -20,7 +20,8 @@ public class Factura {
     
     private LocalDateTime fecha_emision;
     private Medidores medidor;
-    private Plan_Energia Plan; 
+    private Plan_Energia Plan;
+    private String codigo;
 
     public LocalDateTime getFecha_emision() {
         return fecha_emision;
@@ -45,8 +46,14 @@ public class Factura {
     public void setPlan(Plan_Energia Plan) {
         this.Plan = Plan;
     }
-    
-    
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
     
     public Factura(Medidores medidor){
         this.fecha_emision = LocalDateTime.now();
