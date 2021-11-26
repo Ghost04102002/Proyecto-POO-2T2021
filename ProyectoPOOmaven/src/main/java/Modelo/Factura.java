@@ -59,7 +59,8 @@ public class Factura {
     }
     
     public void FinalizarFactura(){
-    
+        this.fecha_emision = LocalDateTime.now();
+        
     }
     
     @Override

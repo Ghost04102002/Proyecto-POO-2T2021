@@ -8,7 +8,7 @@ package com.mycompany.proyectopoomaven;
  *
  * @author Eduart Macias
  */
-public class Main {
+public class TestCorreo {
 
     /**
      * @param args the command line arguments
