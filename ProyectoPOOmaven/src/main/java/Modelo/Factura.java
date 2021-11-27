@@ -18,9 +18,10 @@ public class Factura {
      */
     
     private LocalDateTime fecha_emision;
+    private String codigo;
     private Medidor medidor;
     private Plan_Energia Plan;
-    private String codigo;
+    private LocalDateTime ultimafechaCobrada;
 
     public LocalDateTime getFecha_emision() {
         return fecha_emision;
@@ -28,6 +29,14 @@ public class Factura {
 
     public void setFecha_emision(LocalDateTime fecha_emision) {
         this.fecha_emision = fecha_emision;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public Medidor getMedidor() {
@@ -46,12 +55,12 @@ public class Factura {
         this.Plan = Plan;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public LocalDateTime getUltimafechaCobrada() {
+        return ultimafechaCobrada;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setUltimafechaCobrada(LocalDateTime ultimafechaCobrada) {
+        this.ultimafechaCobrada = ultimafechaCobrada;
     }
     
     public Factura(Medidor medidor){

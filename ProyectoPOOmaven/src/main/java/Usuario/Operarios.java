@@ -4,6 +4,11 @@
  */
 package Usuario;
 
+import Medidores.Med_analogico;
+import Medidores.Medidor;
+import Modelo.Sistema;
+import java.time.LocalDateTime;
+
 /**
  *
  * @author James Malavé
@@ -11,6 +16,7 @@ package Usuario;
 public class Operarios extends Usuario {
     
     private String codigo;
+    private Sistema sis;
 
     /**
      *
@@ -33,6 +39,13 @@ public class Operarios extends Usuario {
      * @param codigo
      */
     public void RegistrarMedicion(String codigo){
-        
+        Medidor med = sis.buscarMedidor(codigo);
+        if(med!=null){
+            if(med instanceof Med_analogico){
+                Med_analogico me = (Med_analogico)med;
+                System.out.println("Ingrese la lectura:");
+            }
+        }
+        System.out.println("Medidor no encontrado en el sistema");
     }        
 }
