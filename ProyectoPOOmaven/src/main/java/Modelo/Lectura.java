@@ -15,6 +15,22 @@ public class Lectura {
     
     private LocalDateTime fechaToma;
     private double kilovatios;
+
+    public LocalDateTime getFechaToma() {
+        return fechaToma;
+    }
+
+    public void setFechaToma(LocalDateTime fechaToma) {
+        this.fechaToma = fechaToma;
+    }
+
+    public double getKilovatios() {
+        return kilovatios;
+    }
+
+    public void setKilovatios(double kilovatios) {
+        this.kilovatios = kilovatios;
+    }
     
     
 }
