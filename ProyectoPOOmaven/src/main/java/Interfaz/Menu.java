@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import Usuario.Usuario;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -28,4 +30,21 @@ public class Menu {
         }while(!op.equals("1") && !op.equals("2"));
         return Integer.parseInt(op);
     }
+    
+    /**
+     *
+     * @param usuarios
+     * @param sc
+     * @return
+     */
+    public static Usuario verificarInicioUsuario(ArrayList<Usuario> usuarios,Scanner sc){
+        String us,contra = "";
+        System.out.println("Ingrese su usuario: ");
+        us = sc.nextLine();
+        System.out.println("Ingrese su contrasenia: ");
+        contra = sc.nextLine();
+        return null;
+    }
+    
+    
 }

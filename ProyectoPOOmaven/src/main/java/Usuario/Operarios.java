@@ -6,7 +6,7 @@ package Usuario;
 
 import Medidores.Med_analogico;
 import Medidores.Medidor;
-import Modelo.Sistema;
+import Interfaz.Sistema;
 import java.time.LocalDateTime;
 
 /**

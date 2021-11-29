@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Modelo;
+package Interfaz;
 
 import Medidores.Medidor;
+import Modelo.Factura;
+import Modelo.Plan_Energia;
 import Usuario.Usuario;
 import java.util.ArrayList;
 
@@ -121,7 +123,4 @@ public class Sistema {
         }
         return null;
     }
-    
-    
-    
 }

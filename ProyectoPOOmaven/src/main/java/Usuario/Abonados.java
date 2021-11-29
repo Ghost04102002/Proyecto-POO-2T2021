@@ -4,7 +4,7 @@
  */
 package Usuario;
 import Medidores.*;
-import Modelo.Sistema;
+import Interfaz.Sistema;
 import Medidores.Medidor;
 import Modelo.Factura;
 import java.util.ArrayList;
