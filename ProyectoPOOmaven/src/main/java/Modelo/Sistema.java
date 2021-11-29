@@ -102,6 +102,26 @@ public class Sistema {
             }
         }
         return null;
-    }    
+    }
+
+    public boolean validarInicio(Usuario user, String contrasena){
+        if(user.getContrasema().equals(contrasena)){
+            return true;
+        }
+        return false; 
+    }
+    
+    
+    public Usuario loginSesion(String usuario, String contrasena){
+        Usuario user = buscarUsuario(usuario);
+        if(user!=null){
+            if(validarInicio(user,contrasena)){
+                return user;
+            }
+        }
+        return null;
+    }
+    
+    
     
 }

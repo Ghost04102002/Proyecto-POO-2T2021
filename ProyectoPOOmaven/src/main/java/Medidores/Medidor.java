@@ -4,6 +4,7 @@
  */
 package Medidores;
 
+import Modelo.Lectura;
 import Modelo.Plan_Energia;
 import Provincia.Provincia;
 import java.time.LocalDateTime;
@@ -18,9 +19,13 @@ public abstract class Medidor {
      */
     
     private String codigo;
+    private String direccion;
     private Plan_Energia plan;
     private Provincia provincia;
     private double consumo;
+    private ArrayList<Lectura> lecturas;
+    private Date ultimaFechaCobrada;
+    private Date consumoUltimaFecha;
 
     public String getCodigo() {
         return codigo;

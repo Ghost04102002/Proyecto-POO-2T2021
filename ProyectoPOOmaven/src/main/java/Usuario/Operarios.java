@@ -44,8 +44,10 @@ public class Operarios extends Usuario {
             if(med instanceof Med_analogico){
                 Med_analogico me = (Med_analogico)med;
                 System.out.println("Ingrese la lectura:");
+                
             }
+        }else{
+            System.out.println("Medidor no encontrado en el sistema");
         }
-        System.out.println("Medidor no encontrado en el sistema");
     }        
 }
