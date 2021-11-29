@@ -35,6 +35,14 @@ public abstract class Medidor {
         this.codigo = codigo;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     public Plan_Energia getPlan() {
         return plan;
     }
@@ -58,6 +66,31 @@ public abstract class Medidor {
     public void setConsumo(double consumo) {
         this.consumo = consumo;
     }
+
+    public ArrayList<Lectura> getLecturas() {
+        return lecturas;
+    }
+
+    public void setLecturas(ArrayList<Lectura> lecturas) {
+        this.lecturas = lecturas;
+    }
+
+    public Date getUltimaFechaCobrada() {
+        return ultimaFechaCobrada;
+    }
+
+    public void setUltimaFechaCobrada(Date ultimaFechaCobrada) {
+        this.ultimaFechaCobrada = ultimaFechaCobrada;
+    }
+
+    public Date getConsumoUltimaFecha() {
+        return consumoUltimaFecha;
+    }
+
+    public void setConsumoUltimaFecha(Date consumoUltimaFecha) {
+        this.consumoUltimaFecha = consumoUltimaFecha;
+    }
+
     
     public Medidor(String codigo, String plan, Provincia provincia){}
     
