@@ -62,11 +62,12 @@ public class Plan_Energia {
         this.pico = pico;
     }
     
-    public Plan_Energia(TipoPlan nombre, ArrayList<Provincia> provincias){
+    public Plan_Energia(TipoPlan nombre, ArrayList<Provincia> provincias,double cargo_base,double costokwporhora,ArrayList<Horario_pico> pico){
         this.nombre = nombre;
         this.provincias = provincias;
-    }
-    
-    public Plan_Energia(){}    
-    
+        this.cargo_base=cargo_base;
+        this.costokwporhora=costokwporhora;
+        this.pico=pico;
+    }  
+    public Plan_Energia(){}     
 }
