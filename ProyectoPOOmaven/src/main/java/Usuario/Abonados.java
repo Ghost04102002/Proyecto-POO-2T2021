@@ -37,7 +37,7 @@ public class Abonados extends Usuario {
         this.medidores = medidores;
     }
     
-    public void ConsultarFactura(String codigo){
+    public void mostrarFacturasAsociadas(){
         System.out.println("Facturas Asociadas");
         System.out.printf("%s%20s%20s%n","Número Factura","Fecha Emisión"
                 , "Código Medidor");
@@ -47,6 +47,10 @@ public class Abonados extends Usuario {
                         fac.getFecha_emision(),fac.getMedidor().getCodigo());
             }
         }
+    }
+    
+    
+    public void ConsultarFactura(String codigo){
         Factura en = sis.buscarFactura(codigo);
         if(en!=null){
             en.toString();
@@ -55,7 +59,7 @@ public class Abonados extends Usuario {
         }
     }
     
-    public void ConsultarHistoricoFacturado(String codigo){
+    public void mostrarMedidoresAsociados(){
         System.out.println("Medidores Asociados");
         System.out.printf("%s%20s%20s%n","Código Medidor","Tipo Medidor"
                 ,"Nombre del Plan");
@@ -65,6 +69,9 @@ public class Abonados extends Usuario {
                         ((Med_digital)med).getMedidor(),med.getPlan().getNombre());       
             }
         }
+    }
+    
+    public void ConsultarHistoricoFacturado(String codigo){
         Medidor med = sis.buscarMedidor(codigo);
         if(med!=null){
             med.toString();
