@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Modelo;
+package Interfaz;
 
 import Medidores.Medidor;
+import Modelo.Factura;
+import Modelo.Plan_Energia;
 import Usuario.Usuario;
 import java.util.ArrayList;
 
@@ -102,6 +104,23 @@ public class Sistema {
             }
         }
         return null;
-    }    
+    }
+
+    public boolean validarInicio(Usuario user, String contrasena){
+        if(user.getContrasema().equals(contrasena)){
+            return true;
+        }
+        return false; 
+    }
     
+    
+    public Usuario loginSesion(String usuario, String contrasena){
+        Usuario user = buscarUsuario(usuario);
+        if(user!=null){
+            if(validarInicio(user,contrasena)){
+                return user;
+            }
+        }
+        return null;
+    }
 }

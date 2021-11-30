@@ -4,6 +4,7 @@
  */
 package Medidores;
 
+import Modelo.Lectura;
 import Modelo.Plan_Energia;
 import Provincia.Provincia;
 import java.time.LocalDateTime;
@@ -18,9 +19,13 @@ public abstract class Medidor {
      */
     
     private String codigo;
+    private String direccion;
     private Plan_Energia plan;
     private Provincia provincia;
     private double consumo;
+    private ArrayList<Lectura> lecturas;
+    private Date ultimaFechaCobrada;
+    private Date consumoUltimaFecha;
 
     public String getCodigo() {
         return codigo;
@@ -28,6 +33,14 @@ public abstract class Medidor {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public Plan_Energia getPlan() {
@@ -53,6 +66,31 @@ public abstract class Medidor {
     public void setConsumo(double consumo) {
         this.consumo = consumo;
     }
+
+    public ArrayList<Lectura> getLecturas() {
+        return lecturas;
+    }
+
+    public void setLecturas(ArrayList<Lectura> lecturas) {
+        this.lecturas = lecturas;
+    }
+
+    public Date getUltimaFechaCobrada() {
+        return ultimaFechaCobrada;
+    }
+
+    public void setUltimaFechaCobrada(Date ultimaFechaCobrada) {
+        this.ultimaFechaCobrada = ultimaFechaCobrada;
+    }
+
+    public Date getConsumoUltimaFecha() {
+        return consumoUltimaFecha;
+    }
+
+    public void setConsumoUltimaFecha(Date consumoUltimaFecha) {
+        this.consumoUltimaFecha = consumoUltimaFecha;
+    }
+
     
     public Medidor(String codigo, String plan, Provincia provincia){}
     

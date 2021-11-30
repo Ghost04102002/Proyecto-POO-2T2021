@@ -14,8 +14,7 @@ public class Med_analogico extends Medidor {
 
     @Override
     public double CalcularValorPagar(LocalDateTime fechaAccion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double TotalPagar = 0;
+        return TotalPagar;
     }
-
-            
 }

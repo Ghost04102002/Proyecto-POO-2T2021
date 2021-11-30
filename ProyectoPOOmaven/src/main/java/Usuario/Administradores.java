@@ -6,6 +6,8 @@ package Usuario;
 
 import Medidores.Medidor;
 import Modelo.Plan_Energia;
+import Provincia.Provincia;
+import java.util.ArrayList;
 /**
  *
  * @author malav
@@ -81,6 +83,10 @@ public class Administradores extends Usuario {
     /**
      * Constructor vacio
      */
-    public Administradores(){}    
+    public Administradores(){}   
+    
+    
+    public static void RegistrarPlan(String nombrePlan,double costoKiloVatioHora,ArrayList<Provincia> Provincias){
+    }
     
 }
