@@ -34,5 +34,6 @@ public class Horario_pico {
     public void setHoraFin(LocalDateTime horaFin) {
         this.horaFin = horaFin;
     }
-    
+
+    public Horario_pico(){}
 }
