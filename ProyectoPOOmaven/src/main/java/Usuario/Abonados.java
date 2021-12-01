@@ -74,11 +74,28 @@ public class Abonados extends Usuario {
     public void ConsultarHistoricoFacturado(String codigo){
         Medidor med = sis.buscarMedidor(codigo);
         if(med!=null){
-            med.toString();
+            
+            System.out.println(med.toString()+"\nKiloVatios Consumidos:");
         }else{
             System.out.println("Medidor no encontrado");
         }
+
     } 
+    
+    public void mostrarMedidoresInteligentes(){
+        System.out.println("Medidores Inteligentes Asociados");
+        System.out.printf("%s%20s%20s%n","Código Medidor","Tipo Medidor"
+                ,"Nombre del Plan");
+        for(Medidor med: medidores){
+            if(med!=null){
+                if(med instanceof Med_analogico){
+                    System.out.printf("4d%20.2f%20s%n",med.getCodigo(),
+                            ((Med_digital)med).getMedidor(),
+                            med.getPlan().getNombre());
+                }
+            }
+        }
+    }
     
     public void ConsultarConsumoPorHora(){
         
