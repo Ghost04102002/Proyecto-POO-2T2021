@@ -80,5 +80,7 @@ public class Abonados extends Usuario {
         }
     } 
     
-    public void ConsultarConsumoPorHora(){}        
+    public void ConsultarConsumoPorHora(){
+        
+    }        
 }
