@@ -38,12 +38,13 @@ public class Operarios extends Usuario {
      *
      * @param codigo
      */
-    public void RegistrarMedicion(String codigo){
+    public void RegistrarMedicion(String codigo, double lectura){
         Medidor med = sis.buscarMedidor(codigo);
         if(med!=null){
             if(med instanceof Med_analogico){
                 Med_analogico me = (Med_analogico)med;
                 System.out.println("Ingrese la lectura:");
+                
             }
         }else{
             System.out.println("Medidor no encontrado en el sistema");

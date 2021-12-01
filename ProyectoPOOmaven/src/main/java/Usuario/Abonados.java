@@ -7,6 +7,7 @@ import Medidores.*;
 import Interfaz.Sistema;
 import Medidores.Medidor;
 import Modelo.Factura;
+import Modelo.Lectura;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -38,7 +39,7 @@ public class Abonados extends Usuario {
         this.medidores = medidores;
     }
     
-    public void ConsultarFactura(String codigo){
+    public void mostrarFacturasAsociadas(){
         System.out.println("Facturas Asociadas");
         System.out.printf("%s%20s%20s%n","Número Factura","Fecha Emisión"
                 , "Código Medidor");
@@ -48,6 +49,10 @@ public class Abonados extends Usuario {
                         fac.getFecha_emision(),fac.getMedidor().getCodigo());
             }
         }
+    }
+    
+    
+    public void ConsultarFactura(String codigo){
         Factura en = sis.buscarFactura(codigo);
         if(en!=null){
             en.toString();
@@ -56,7 +61,7 @@ public class Abonados extends Usuario {
         }
     }
     
-    public void ConsultarHistoricoFacturado(String codigo){
+    public void mostrarMedidoresAsociados(){
         System.out.println("Medidores Asociados");
         System.out.printf("%s%20s%20s%n","Código Medidor","Tipo Medidor"
                 ,"Nombre del Plan");
@@ -66,34 +71,46 @@ public class Abonados extends Usuario {
                         ((Med_digital)med).getMedidor(),med.getPlan().getNombre());       
             }
         }
+    }
+    
+    public void ConsultarHistoricoFacturado(String codigo){
         Medidor med = sis.buscarMedidor(codigo);
         if(med!=null){
-            med.toString();
+            
+            System.out.println(med.toString()+"\nKiloVatios Consumidos:");
         }else{
             System.out.println("Medidor no encontrado");
         }
+
     } 
     
-    public void ConsultarConsumoPorHora(String codigo,LocalDateTime fechaIni,LocalDateTime fechaFin){
+
+    public void mostrarMedidoresInteligentes(){
         System.out.println("Medidores Inteligentes Asociados");
         System.out.printf("%s%20s%20s%n","Código Medidor","Tipo Medidor"
                 ,"Nombre del Plan");
-        for (Medidor med: medidores){
+        for(Medidor med: medidores){
             if(med!=null){
-                if(med instanceof Med_digital){
+                if(med instanceof Med_analogico){
                     System.out.printf("4d%20.2f%20s%n",med.getCodigo(),
-                        ((Med_digital)med).getMedidor(),med.getPlan().getNombre());
+                            ((Med_digital)med).getMedidor(),
+                            med.getPlan().getNombre());
                 }
             }
         }
-        Medidor med=sis.buscarMedidor(codigo);
-        if(med!=null){
-            if(med instanceof Med_digital){
-                med.toString();
+    }
+    
+    public void ConsultarConsumoPorHora(String codigo,LocalDateTime Inicio, LocalDateTime fin){
+        Medidor med = sis.buscarMedidor(codigo);
+        if(med instanceof Med_digital){
+            Med_digital me = (Med_digital)med;
+            ArrayList<Lectura> lecturas = me.getLecturas();
+            System.out.println("Hora\tPromedio Consumo");
+            for(Lectura lec : lecturas){
+                if(lec!=null){
+                System.out.println(lec.getFechaToma().minusHours(1));
+                }
             }
-        }else{
-            System.out.println("Medidor no encontrado");
         }
-        
     }        
 }

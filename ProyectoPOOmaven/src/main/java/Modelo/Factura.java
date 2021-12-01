@@ -25,8 +25,6 @@ public class Factura {
     private LocalDateTime ultimafechaCobrada;
     private Lectura lecturaanterior;
     private Lectura lecturaactual;
-   
-    
 
     public LocalDateTime getFecha_emision() {
         return fecha_emision;
@@ -67,15 +65,27 @@ public class Factura {
     public void setUltimafechaCobrada(LocalDateTime ultimafechaCobrada) {
         this.ultimafechaCobrada = ultimafechaCobrada;
     }
-    
+
     public Factura(Medidor medidor){
         this.fecha_emision = LocalDateTime.now();
     }
     
     public void FinalizarFactura(){
         this.fecha_emision = LocalDateTime.now();
-        
     }
+    public Lectura getLecturaanterior(){
+        return lecturaanterior;
+    }
+    public void setLecturaanterior(Lectura lecturaanterior){
+        this.lecturaanterior=lecturaanterior;
+    }
+    public Lectura getLecturaactual(){
+        return lecturaactual;
+    }
+    public void setLecturaactual(Lectura lecturaactual){
+        this.lecturaactual=lecturaactual;
+    }
+ 
     public long encontrarDiasFacturados(){
          return ChronoUnit.DAYS.between(fecha_emision,ultimafechaCobrada);
     }
@@ -83,14 +93,15 @@ public class Factura {
         return lecturaactual.getKilovatios()-lecturaanterior.getKilovatios();
     }
 
-    
+
     @Override
     public String toString(){
-        return "Codigo Factura: "+codigo+"\nMedidor: "+medidor.getCodigo()+"\nNombre del Plan: "+Plan.getNombre()+
-                "\nDesde: "+lecturaanterior.getFechaToma()+"\nHasta: "+lecturaactual.getFechaToma()+
-                "\nDias Facturados: "+encontrarDiasFacturados()+"\nLectura Anterior: "+lecturaanterior.getKilovatios()+
-                "\nLectura Actual: "+lecturaactual.getKilovatios()+"\nConsumo: "+Consumo()+"\nCargo Fijo: "+
-                Plan.getCargo_base()+"\nTota a pagar: "+medidor.CalcularValorPagar(fecha_emision);
+
+        return "Codigo Factura: "+getCodigo()+"\nMedidor: "+getMedidor().getCodigo()+"\nNombre del Plan: "+getPlan().getNombre()+
+                "\nDesde: "+getLecturaanterior().getFechaToma()+"\nHasta: "+getLecturaactual().getFechaToma()+
+                "\nDias Facturados: "+encontrarDiasFacturados()+"\nLectura Anterior: "+getLecturaanterior().getKilovatios()+
+                "\nLectura Actual: "+getLecturaactual().getKilovatios()+"\nConsumo: "+Consumo()+"\nCargo Fijo: "+
+                Plan.getCargo_base()+"\nTota a pagar: "+getMedidor().CalcularValorPagar(fecha_emision);
     }    
     //falta hacer bien lo de CalcularValorPagar()    
-}
+}     

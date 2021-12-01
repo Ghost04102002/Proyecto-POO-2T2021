@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Usuario.*;
 import Usuario.Usuario;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,7 +21,7 @@ public class Menu {
      * @param sc Valor ingresado por consola
      * @return Devuelve la pcion escogida
      */
-    public static int generarMenuSistema(Scanner sc){
+    public static int menuSistema(Scanner sc){
         System.out.println("Coorporacion Nacional De Electricidad");
         String op = "";
         do{
@@ -46,5 +47,40 @@ public class Menu {
         return null;
     }
     
+    public static void menuAdministrador(){
+        System.out.println("\n Menu del Administrador");
+        System.out.println("1. Registrar Plan");
+        System.out.println("2. Registrar Medidor");
+        System.out.println("3. Simular Mediciones");
+        System.out.println("4. Realizar Facturacion");
+        System.out.println("5. Regresar");
+    }
     
+    public static void menuOperario(){
+        System.out.println("\n Menu Operario");
+        System.out.println("1. Registrar Medicion");
+        System.out.println("2. Regresar");
+    }
+    
+    public static void menuAbonado(){
+        System.out.println("\n Menu Abonado");
+        System.out.println("1. Consultar factura");
+        System.out.println("2. Consultar historico facturado");
+        System.out.println("3. Consultar consumo por hora");
+        System.out.println("4. Regresar");
+        
+    }
+    
+    public static void menuUsuario(Usuario us){
+        if(us instanceof Administradores){
+            menuAdministrador();
+        }
+        if(us instanceof Operarios){
+            menuOperario();
+        }
+        if(us instanceof Abonados){
+            menuAbonado();
+        }
+    }
 }
+    
