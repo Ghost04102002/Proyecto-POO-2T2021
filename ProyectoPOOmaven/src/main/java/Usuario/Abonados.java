@@ -7,6 +7,8 @@ import Medidores.*;
 import Interfaz.Sistema;
 import Medidores.Medidor;
 import Modelo.Factura;
+import Modelo.Lectura;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -97,7 +99,17 @@ public class Abonados extends Usuario {
         }
     }
     
-    public void ConsultarConsumoPorHora(){
-        
+    public void ConsultarConsumoPorHora(String codigo,LocalDateTime Inicio, LocalDateTime fin){
+        Medidor med = sis.buscarMedidor(codigo);
+        if(med instanceof Med_digital){
+            Med_digital me = (Med_digital)med;
+            ArrayList<Lectura> lecturas = me.getLecturas();
+            System.out.println("Hora\tPromedio Consumo");
+            for(Lectura lec : lecturas){
+                if(lec!=null){
+                System.out.println(lec.getFechaToma().minusHours(1));
+                }
+            }
+        }
     }        
 }
