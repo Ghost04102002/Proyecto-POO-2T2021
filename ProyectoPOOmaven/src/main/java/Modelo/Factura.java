@@ -5,7 +5,8 @@
 package Modelo;
 
 import Medidores.Medidor;
-import java.time.LocalDateTime;
+import java.time.*;
+import java.time.temporal.ChronoUnit;
 
 /**
  *
@@ -22,6 +23,10 @@ public class Factura {
     private Medidor medidor;
     private Plan_Energia Plan;
     private LocalDateTime ultimafechaCobrada;
+    private Lectura lecturaanterior;
+    private Lectura lecturaactual;
+   
+    
 
     public LocalDateTime getFecha_emision() {
         return fecha_emision;
@@ -71,10 +76,21 @@ public class Factura {
         this.fecha_emision = LocalDateTime.now();
         
     }
+    public long encontrarDiasFacturados(){
+         return ChronoUnit.DAYS.between(fecha_emision,ultimafechaCobrada);
+    }
+    public double Consumo(){
+        return lecturaactual.getKilovatios()-lecturaanterior.getKilovatios();
+    }
+
     
     @Override
     public String toString(){
-        return "";
+        return "Codigo Factura: "+codigo+"\nMedidor: "+medidor.getCodigo()+"\nNombre del Plan: "+Plan.getNombre()+
+                "\nDesde: "+lecturaanterior.getFechaToma()+"\nHasta: "+lecturaactual.getFechaToma()+
+                "\nDias Facturados: "+encontrarDiasFacturados()+"\nLectura Anterior: "+lecturaanterior.getKilovatios()+
+                "\nLectura Actual: "+lecturaactual.getKilovatios()+"\nConsumo: "+Consumo()+"\nCargo Fijo: "+
+                Plan.getCargo_base()+"\nTota a pagar: "+medidor.CalcularValorPagar(fecha_emision);
     }    
-    
+    //falta hacer bien lo de CalcularValorPagar()    
 }

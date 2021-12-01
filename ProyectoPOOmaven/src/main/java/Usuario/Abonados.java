@@ -7,6 +7,7 @@ import Medidores.*;
 import Interfaz.Sistema;
 import Medidores.Medidor;
 import Modelo.Factura;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -73,5 +74,26 @@ public class Abonados extends Usuario {
         }
     } 
     
-    public void ConsultarConsumoPorHora(){}        
+    public void ConsultarConsumoPorHora(String codigo,LocalDateTime fechaIni,LocalDateTime fechaFin){
+        System.out.println("Medidores Inteligentes Asociados");
+        System.out.printf("%s%20s%20s%n","Código Medidor","Tipo Medidor"
+                ,"Nombre del Plan");
+        for (Medidor med: medidores){
+            if(med!=null){
+                if(med instanceof Med_digital){
+                    System.out.printf("4d%20.2f%20s%n",med.getCodigo(),
+                        ((Med_digital)med).getMedidor(),med.getPlan().getNombre());
+                }
+            }
+        }
+        Medidor med=sis.buscarMedidor(codigo);
+        if(med!=null){
+            if(med instanceof Med_digital){
+                med.toString();
+            }
+        }else{
+            System.out.println("Medidor no encontrado");
+        }
+        
+    }        
 }
