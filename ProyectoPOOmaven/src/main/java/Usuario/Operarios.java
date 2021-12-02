@@ -35,6 +35,12 @@ public class Operarios extends Usuario {
         this.codigo = codigo;
     }
     
+    public Operarios(String nombre, String clave){
+        super(nombre,clave);
+    }
+    
+    public Operarios(){}
+    
     /**
      *
      * @param medidores

@@ -41,6 +41,13 @@ public class Abonados extends Usuario {
         this.medidores = medidores;
     }
     
+    public Abonados(String nombre, String clave){
+        super(nombre,clave);
+    }
+    
+    public Abonados(){}
+    
+    
     public void mostrarFacturasAsociadas(){
         System.out.println("Facturas Asociadas");
         System.out.printf("%s%20s%20s%n","Número Factura","Fecha Emisión"
