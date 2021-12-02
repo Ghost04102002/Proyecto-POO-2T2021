@@ -4,6 +4,7 @@
  */
 package Interfaz;
 
+import static Interfaz.Informacion.informacionSistema;
 import static Interfaz.Menu.menuSistema;
 import java.util.Scanner;
 
@@ -13,10 +14,13 @@ import java.util.Scanner;
  */
 public class Interfaz {
     
+    public static Sistema sistema;
+    
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         
-        Sistema sis = new Sistema();
+        sistema = new Sistema();
+        sistema = informacionSistema();
         
         
     }

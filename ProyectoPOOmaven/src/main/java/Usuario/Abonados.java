@@ -117,7 +117,7 @@ public class Abonados extends Usuario {
             System.out.println("Hora\tPromedio Consumo");
             for(Lectura lec : lecturas){
                 if(lec!=null){
-                System.out.println(lec.getFechaToma().minusHours(1));
+                    System.out.println(lec.getFechaToma().minusHours(1));
                 }
             }
         }

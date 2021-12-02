@@ -7,7 +7,9 @@ package Usuario;
 import Medidores.Medidor;
 import Modelo.Plan_Energia;
 import Provincia.Provincia;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Scanner;
 /**
  *
  * @author malav
@@ -86,8 +88,51 @@ public class Administradores extends Usuario {
     public Administradores(){}   
     
     
-    public static void RegistrarPlan(String nombrePlan,double costoKiloVatioHora,ArrayList<Provincia> Provincias){
-    
+    public static void RegistrarPlan(ArrayList<Provincia> Provincias, Scanner sc){
+        System.out.println("\n Registro de Plan");
+        
+        String tipoPlan, nombrespro,validar = "";
+        
+        int numeroPro = 0;
+        
+        double costoKiloVatio,cargoBase = 0;
+        
+        LocalTime horaspico;
+        
+        
+        
+        do{
+            System.out.println("Ingrese el nombre del Plan: ");
+            tipoPlan = sc.nextLine();
+            System.out.println("Ingrese el costo del KiloVatioPorHora: ");
+            costoKiloVatio = sc.nextDouble();
+            sc.nextLine();
+            System.out.println("En cuantas provincias desee que este disponible: ");
+            numeroPro = sc.nextInt();
+            sc.nextLine();
+            for(int i=1; i<=numeroPro ; i++){
+                System.out.println("Ingrese el nombre de la provincia nº"+i+":");
+                nombrespro = sc.nextLine();
+                
+            }
+        }while(validar.equals("S"));
     }
+    
+    public static void RegistrarMedidor(){}
+    
+    public static void SimularMediciones(){}
+    
+    public static void RealizarFacturacion(){}
+    
+    public static Provincia buscarProvincia(ArrayList<Provincia> provincias,String provincia){
+        for(Provincia pro : provincias){
+            if(pro!=null){
+                
+                return pro;
+            }
+        }
+        
+        return null;
+    } 
     
 }
