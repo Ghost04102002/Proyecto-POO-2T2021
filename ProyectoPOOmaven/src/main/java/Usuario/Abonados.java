@@ -5,6 +5,8 @@
 package Usuario;
 import Medidores.*;
 import Interfaz.Sistema;
+import static Interfaz.Sistema.buscarFactura;
+import static Interfaz.Sistema.buscarMedidor;
 import Medidores.Medidor;
 import Modelo.Factura;
 import Modelo.Lectura;
@@ -52,8 +54,8 @@ public class Abonados extends Usuario {
     }
     
     
-    public void ConsultarFactura(String codigo){
-        Factura en = sis.buscarFactura(codigo);
+    public void ConsultarFactura(ArrayList<Factura> facturas,String codigo){
+        Factura en = buscarFactura(facturas,codigo);
         if(en!=null){
             en.toString();
         }else{
@@ -73,8 +75,8 @@ public class Abonados extends Usuario {
         }
     }
     
-    public void ConsultarHistoricoFacturado(String codigo){
-        Medidor med = sis.buscarMedidor(codigo);
+    public void ConsultarHistoricoFacturado(ArrayList<Medidor> medidores,String codigo){
+        Medidor med = buscarMedidor(medidores,codigo);
         if(med!=null){
             
             System.out.println(med.toString()+"\nKiloVatios Consumidos:");
@@ -100,8 +102,8 @@ public class Abonados extends Usuario {
         }
     }
     
-    public void ConsultarConsumoPorHora(String codigo,LocalDateTime Inicio, LocalDateTime fin){
-        Medidor med = sis.buscarMedidor(codigo);
+    public void ConsultarConsumoPorHora(ArrayList<Medidor> medidores,String codigo,LocalDateTime Inicio, LocalDateTime fin){
+        Medidor med = buscarMedidor(medidores,codigo);
         if(med instanceof Med_digital){
             Med_digital me = (Med_digital)med;
             ArrayList<Lectura> lecturas = me.getLecturas();

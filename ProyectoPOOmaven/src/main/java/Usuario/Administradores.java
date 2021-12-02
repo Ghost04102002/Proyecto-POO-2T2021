@@ -87,6 +87,7 @@ public class Administradores extends Usuario {
     
     
     public static void RegistrarPlan(String nombrePlan,double costoKiloVatioHora,ArrayList<Provincia> Provincias){
+    
     }
     
 }

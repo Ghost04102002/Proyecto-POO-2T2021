@@ -68,6 +68,11 @@ public class Plan_Energia {
         this.cargo_base=cargo_base;
         this.costokwporhora=costokwporhora;
         this.pico=pico;
-    }  
-    public Plan_Energia(){}     
+    } 
+    
+    public Plan_Energia(){}    
+    
+    public void agregarHoraPico(Horario_pico pic){
+        
+    }
 }

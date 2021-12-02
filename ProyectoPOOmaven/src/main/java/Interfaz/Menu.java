@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import static Interfaz.Sistema.loginSesion;
 import Usuario.*;
 import Usuario.Usuario;
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class Menu {
         us = sc.nextLine();
         System.out.println("Ingrese su contrasenia: ");
         contra = sc.nextLine();
-        return null;
+        return loginSesion(usuarios,us,contra);
     }
     
     public static void menuAdministrador(){

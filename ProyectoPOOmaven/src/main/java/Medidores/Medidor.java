@@ -92,7 +92,20 @@ public abstract class Medidor {
     }
 
     
-    public Medidor(String codigo, String plan, Provincia provincia){}
+    public Medidor(String codigo, Plan_Energia plan,String direccion, Provincia provincia){
+        this.codigo = codigo;
+        this.plan = plan;
+        this.direccion = direccion;
+        this.lecturas = new ArrayList<>();
+        this.provincia = provincia;
+    }
+    
+    public abstract void agregarLecutra(Lectura lec);
+    
+    public void FinalizarConsumo(){
+        
+    }
+    
     
     public Medidor(){}
     

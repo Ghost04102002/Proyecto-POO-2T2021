@@ -8,6 +8,7 @@ import Medidores.Med_analogico;
 import Medidores.Medidor;
 import Interfaz.Sistema;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  *
@@ -36,10 +37,12 @@ public class Operarios extends Usuario {
     
     /**
      *
+     * @param medidores
      * @param codigo
+     * @param lectura
      */
-    public void RegistrarMedicion(String codigo, double lectura){
-        Medidor med = sis.buscarMedidor(codigo);
+    public void RegistrarMedicion(ArrayList<Medidor> medidores,String codigo, double lectura){
+        Medidor med = sis.buscarMedidor(medidores,codigo);
         if(med!=null){
             if(med instanceof Med_analogico){
                 Med_analogico me = (Med_analogico)med;

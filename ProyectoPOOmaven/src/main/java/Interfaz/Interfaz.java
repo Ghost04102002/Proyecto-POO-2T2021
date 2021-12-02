@@ -4,10 +4,17 @@
  */
 package Interfaz;
 
+import static Interfaz.Menu.menuSistema;
+import java.util.Scanner;
+
 /**
  *
  * @author James Malavé
  */
 public class Interfaz {
     
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        menuSistema(sc);
+    }
 }

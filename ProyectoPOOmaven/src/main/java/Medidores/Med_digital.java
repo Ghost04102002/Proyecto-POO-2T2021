@@ -4,6 +4,7 @@
  */
 package Medidores;
 
+import Modelo.Lectura;
 import Modelo.TipoMedidor;
 import java.time.LocalDateTime;
 /**
@@ -26,6 +27,11 @@ public class Med_digital extends Medidor {
     
     @Override
     public double CalcularValorPagar(LocalDateTime fechaAccion) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void agregarLecutra(Lectura lec) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

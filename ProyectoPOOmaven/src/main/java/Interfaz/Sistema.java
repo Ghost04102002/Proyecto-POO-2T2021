@@ -18,34 +18,44 @@ public class Sistema {
     /**
      * variables de intancia
      */
-    private ArrayList<Plan_Energia> planes;
-    private ArrayList<Medidor> medidores;
-    private ArrayList<Factura> facturas;
-    private ArrayList<Usuario> usuarios;
+    private static ArrayList<Plan_Energia> planes;
+    private static ArrayList<Medidor> medidores;
+    private static ArrayList<Factura> facturas;
+    private static ArrayList<Usuario> usuarios;
 
-    public ArrayList<Plan_Energia> getPlanes() {
+    public static ArrayList<Plan_Energia> getPlanes() {
         return planes;
     }
 
-    public void setPlanes(ArrayList<Plan_Energia> planes) {
-        this.planes = planes;
+    public static void setPlanes(ArrayList<Plan_Energia> planes) {
+        Sistema.planes = planes;
     }
 
-    public ArrayList<Medidor> getMedidores() {
+    public static ArrayList<Medidor> getMedidores() {
         return medidores;
     }
 
-    public void setMedidores(ArrayList<Medidor> medidores) {
-        this.medidores = medidores;
+    public static void setMedidores(ArrayList<Medidor> medidores) {
+        Sistema.medidores = medidores;
     }
 
-    public ArrayList<Usuario> getUsuarios() {
+    public static ArrayList<Factura> getFacturas() {
+        return facturas;
+    }
+
+    public static void setFacturas(ArrayList<Factura> facturas) {
+        Sistema.facturas = facturas;
+    }
+
+    public static ArrayList<Usuario> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(ArrayList<Usuario> usuarios) {
-        this.usuarios = usuarios;
+    public static void setUsuarios(ArrayList<Usuario> usuarios) {
+        Sistema.usuarios = usuarios;
     }
+
+
     
     /**
      * Constructor vacio, inicializa las variables
@@ -63,7 +73,7 @@ public class Sistema {
      * @param user
      * @return
      */
-    public Usuario buscarUsuario(String user){
+    public static Usuario buscarUsuario(ArrayList<Usuario> usuarios,String user){
         for(Usuario us: usuarios){
             if(us!=null){
                 if(us.getNombre_usu().equals(user)){
@@ -79,7 +89,7 @@ public class Sistema {
      * @param codigo
      * @return
      */
-    public Medidor buscarMedidor(String codigo){
+    public static Medidor buscarMedidor(ArrayList<Medidor> medidores,String codigo){
         for(Medidor med : medidores){
             if(med!=null){
                 if(med.getCodigo().equals(codigo)){
@@ -95,7 +105,7 @@ public class Sistema {
      * @param codigo
      * @return
      */
-    public Factura buscarFactura(String codigo){
+    public static Factura buscarFactura(ArrayList<Factura> facturas,String codigo){
         for(Factura fac: facturas){
             if(fac!=null){
                 if(fac.getCodigo().equals(codigo)){
@@ -106,7 +116,7 @@ public class Sistema {
         return null;
     }
 
-    public boolean validarInicio(Usuario user, String contrasena){
+    public static boolean validarInicio(Usuario user, String contrasena){
         if(user.getContrasema().equals(contrasena)){
             return true;
         }
@@ -114,8 +124,8 @@ public class Sistema {
     }
     
     
-    public Usuario loginSesion(String usuario, String contrasena){
-        Usuario user = buscarUsuario(usuario);
+    public static Usuario loginSesion(ArrayList<Usuario> usuarios,String usuario, String contrasena){
+        Usuario user = buscarUsuario(usuarios,usuario);
         if(user!=null){
             if(validarInicio(user,contrasena)){
                 return user;
