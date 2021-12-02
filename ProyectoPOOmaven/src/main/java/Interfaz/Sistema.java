@@ -12,6 +12,8 @@ import static Modelo.TipoPlan.COMERCIAL;
 import static Modelo.TipoPlan.RESIDENCIAL;
 import Usuario.Abonados;
 import Usuario.Usuario;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -155,4 +157,17 @@ public class Sistema {
     public static boolean validarPlan(String tipoPlan){
         return false;
     }
+    
+    /**
+     *
+     * @param fecha
+     * @return
+     */
+    public static LocalDate StringToDate(String fecha){               
+        DateTimeFormatter fec = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return LocalDate.parse(fecha, fec);        
+    }
+    
+    public static void enviarCorreo(){}
+    
 }
