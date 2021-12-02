@@ -10,6 +10,8 @@ import Provincia.Provincia;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
+import Modelo.TipoPlan;
+import static Modelo.TipoPlan.COMERCIAL;
 /**
  *
  * @author malav
@@ -77,8 +79,19 @@ public class Administradores extends Usuario {
      * @param usuario
      * @param contrasema
      */
+    
     public Administradores(String usuario, String contrasema){
         super(usuario,contrasema);
+    }
+    
+        
+    public Administradores(String usuario,String contrasema,String nombreAbonado,
+            String cedulaAbonado,String correoAbonado,String direccion){
+        this(usuario,contrasema);
+        this.nombreAbonado = nombreAbonado;
+        this.cedulaAbonado = cedulaAbonado;
+        this.correoAbonado = correoAbonado;
+        this.direccionInstalarMedidor = direccion;
     }
     
     
@@ -118,7 +131,11 @@ public class Administradores extends Usuario {
         }while(validar.equals("S"));
     }
     
-    public static void RegistrarMedidor(){}
+    public static void RegistrarMedidor(Scanner sc){
+        System.out.println("\n Registro Medidor");
+        System.out.println("Ingrese el numero de cedula: ");
+        String cedula = sc.nextLine();
+    }
     
     public static void SimularMediciones(){}
     
@@ -127,12 +144,14 @@ public class Administradores extends Usuario {
     public static Provincia buscarProvincia(ArrayList<Provincia> provincias,String provincia){
         for(Provincia pro : provincias){
             if(pro!=null){
-                
-                return pro;
+                if(pro.toString().equals(provincia)){
+                    return pro;
+                }
             }
         }
-        
         return null;
-    } 
+    }
+    
+    
     
 }

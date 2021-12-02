@@ -7,6 +7,9 @@ package Interfaz;
 import Medidores.Medidor;
 import Modelo.Factura;
 import Modelo.Plan_Energia;
+import Modelo.TipoPlan;
+import static Modelo.TipoPlan.COMERCIAL;
+import static Modelo.TipoPlan.RESIDENCIAL;
 import Usuario.Usuario;
 import java.util.ArrayList;
 
@@ -132,5 +135,9 @@ public class Sistema {
             }
         }
         return null;
+    }
+    
+    public static boolean validarPlan(String tipoPlan){
+        return false;
     }
 }

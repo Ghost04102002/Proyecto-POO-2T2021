@@ -23,6 +23,8 @@ public class Abonados extends Usuario {
      */
     private ArrayList<Factura> facturas;
     private ArrayList<Medidor> medidores;
+    private String correo;
+    private String cedula;
     private Sistema sis;
 
     public ArrayList<Factura> getFacturas() {
