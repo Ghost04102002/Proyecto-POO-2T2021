@@ -4,7 +4,9 @@
  */
 package Usuario;
 
+import Interfaz.Sistema;
 import Medidores.Medidor;
+import Modelo.Factura;
 import Modelo.Plan_Energia;
 import Provincia.Provincia;
 import java.time.LocalTime;
@@ -12,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import Modelo.TipoPlan;
 import static Modelo.TipoPlan.COMERCIAL;
+import java.time.Instant;
+import java.util.Date;
 /**
  *
  * @author malav
@@ -139,7 +143,11 @@ public class Administradores extends Usuario {
     
     public static void SimularMediciones(){}
     
-    public static void RealizarFacturacion(){}
+    public static void RealizarFacturacion(){
+        for(Factura fac: Sistema.getFacturas()){
+            fac.FinalizarFactura();
+        }
+    }
     
     public static Provincia buscarProvincia(ArrayList<Provincia> provincias,String provincia){
         for(Provincia pro : provincias){
