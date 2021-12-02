@@ -19,13 +19,17 @@ public class Informacion {
     public static Sistema informacionSistema(){
         Sistema sis = new Sistema();
         
+        String nombre,contrasenia,correo,direccion="";
+        
         //Usuario1
         
         Administradores ad = new Administradores("admin","superadmin");
         
         //Usuario2
+        nombre = "Sara";
+        contrasenia="SL10";
         
-        Operarios ope1 = new Operarios("Sara","SL10");
+        Operarios ope1 = new Operarios(nombre,contrasenia);
         
         //Usuario3
         
@@ -33,16 +37,23 @@ public class Informacion {
         
         //Usuario4
         
-        Abonados ab1 = new Abonados("Martha","ma21");
+        nombre = "Martha";
+        contrasenia = "ma21";
+        correo = "";
+        direccion = "";
+        
+        Abonados ab1 = new Abonados(nombre,contrasenia,correo,direccion);
         
         //Usuario5
         
-        Abonados ab2 = new Abonados("Pablo","rop2");
+        nombre = "Pablo";
+        contrasenia = "rop2";
+        correo = "";
+        direccion = "";
         
-        //Medidor Analogicoç
+        Abonados ab2 = new Abonados(nombre,contrasenia,correo,direccion);
         
-        String codigo1 = "COM001";
-        String direccion = "";
+        //Medidor Analogico
         
         Med_analogico med1 = new Med_analogico();
         

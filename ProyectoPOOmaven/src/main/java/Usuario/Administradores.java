@@ -139,6 +139,12 @@ public class Administradores extends Usuario {
         System.out.println("\n Registro Medidor");
         System.out.println("Ingrese el numero de cedula: ");
         String cedula = sc.nextLine();
+        Usuario ab = Sistema.buscarUsuario(cedula, Sistema.getUsuarios());
+        if(ab!=null){
+            
+        }else{
+            
+        }
     }
     
     public static void SimularMediciones(){}

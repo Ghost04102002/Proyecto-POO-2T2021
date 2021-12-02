@@ -10,6 +10,7 @@ import Modelo.Plan_Energia;
 import Modelo.TipoPlan;
 import static Modelo.TipoPlan.COMERCIAL;
 import static Modelo.TipoPlan.RESIDENCIAL;
+import Usuario.Abonados;
 import Usuario.Usuario;
 import java.util.ArrayList;
 
@@ -81,6 +82,20 @@ public class Sistema {
             if(us!=null){
                 if(us.getNombre_usu().equals(user)){
                     return us;
+                }
+            }
+        }
+        return null;
+    }
+    
+    public static Usuario buscarUsuario(String cedula,ArrayList<Usuario> usuarios){
+        for(Usuario us: usuarios){
+            if(us!=null){
+                if(us instanceof Abonados){
+                    Abonados ab = (Abonados)us;
+                    if(ab.getCedula().equals(cedula)){
+                        return ab;
+                    }
                 }
             }
         }
