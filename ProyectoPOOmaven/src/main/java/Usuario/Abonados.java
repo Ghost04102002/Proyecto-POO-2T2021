@@ -25,7 +25,6 @@ public class Abonados extends Usuario {
     private ArrayList<Medidor> medidores;
     private String correo;
     private String cedula;
-    private Sistema sis;
 
     public ArrayList<Factura> getFacturas() {
         return facturas;
@@ -42,9 +41,31 @@ public class Abonados extends Usuario {
     public void setMedidores(ArrayList<Medidor> medidores) {
         this.medidores = medidores;
     }
-    
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
     public Abonados(String nombre, String clave){
         super(nombre,clave);
+    }
+    
+    public Abonados(String nombre,String clave, String cedula, String correo){
+        this(nombre,clave);
+        this.cedula = cedula;
+        this.correo = correo;
     }
     
     public Abonados(){}
