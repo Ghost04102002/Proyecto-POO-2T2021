@@ -8,7 +8,7 @@ package Usuario;
  *
  * @author James Malavé
  */
-public abstract class Usuario {
+public class Usuario {
     /**
      * Variables de instancia
      */
