@@ -100,14 +100,15 @@ public abstract class Medidor {
         this.provincia = provincia;
     }
     
+    public Medidor(){}
+    
     public abstract void agregarLecutra(Lectura lec);
     
     public void FinalizarConsumo(){
-        
+    
     }
     
     
-    public Medidor(){}
     
     public abstract double CalcularValorPagar(LocalDateTime fechaAccion);   
 }
