@@ -19,6 +19,7 @@ public class Horario_pico {
     
     private LocalTime horaInicio;
     private LocalTime horaFin;
+    private int consumopico;
 
     public LocalTime getHoraInicio() {
         return horaInicio;
@@ -35,10 +36,17 @@ public class Horario_pico {
     public void setHoraFin(LocalTime horaFin) {
         this.horaFin = horaFin;
     }
+    public int getConsumopico(){
+        return consumopico;
+    }
+    public void setConsumopico(int consumopico){
+        this.consumopico=consumopico;
+    }
     
-    public Horario_pico(LocalTime horaInicio,LocalTime horaFin){
+    public Horario_pico(LocalTime horaInicio,LocalTime horaFin, int consumopico){
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
+        this.consumopico=consumopico;
     }
     
     public Horario_pico(){}

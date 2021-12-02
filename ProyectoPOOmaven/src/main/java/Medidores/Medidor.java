@@ -101,14 +101,6 @@ public abstract class Medidor {
     }
     
     public Medidor(){}
-    
-    public abstract void agregarLecutra(Lectura lec);
-    
-    public void FinalizarConsumo(){
-    
-    }
-    
-    
-    
+    public abstract void agregarLecutra(Lectura lec);   
     public abstract double CalcularValorPagar(LocalDateTime fechaAccion);   
 }

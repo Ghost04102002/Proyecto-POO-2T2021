@@ -90,7 +90,7 @@ public class Factura {
          return ChronoUnit.DAYS.between(fecha_emision,ultimafechaCobrada);
     }
     public double Consumo(){
-        return lecturaactual.getKilovatios()-lecturaanterior.getKilovatios();
+        return getLecturaactual().getKilovatios()-getLecturaanterior().getKilovatios();
     }
 
 

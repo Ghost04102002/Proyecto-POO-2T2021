@@ -31,6 +31,9 @@ public class Lectura {
     public void setKilovatios(double kilovatios) {
         this.kilovatios = kilovatios;
     }
-    
-    
+    public Lectura(LocalDateTime fechaToma,double kilovatios){
+        this.fechaToma=fechaToma;
+        this.kilovatios=kilovatios;
+    }
+    public Lectura(){}    
 }

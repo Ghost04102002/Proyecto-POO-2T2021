@@ -12,6 +12,7 @@ import static Modelo.TipoPlan.COMERCIAL;
 import static Modelo.TipoPlan.RESIDENCIAL;
 import Usuario.Abonados;
 import Usuario.Usuario;
+import com.mycompany.proyectopoomaven.Correo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -168,6 +169,8 @@ public class Sistema {
         return LocalDate.parse(fecha, fec);        
     }
     
-    public static void enviarCorreo(){}
+    public static void enviarCorreo(){
+        Correo.enviarEmail(destinatario, asunto, contenido);
+    }
     
 }

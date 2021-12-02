@@ -62,17 +62,17 @@ public class Plan_Energia {
         this.pico = pico;
     }
     
-    public Plan_Energia(TipoPlan nombre, ArrayList<Provincia> provincias,double cargo_base,double costokwporhora,ArrayList<Horario_pico> pico){
+    public Plan_Energia(TipoPlan nombre, double cargo_base,double costokwporhora){
         this.nombre = nombre;
-        this.provincias = provincias;
+        this.provincias = new ArrayList<>();
         this.cargo_base=cargo_base;
         this.costokwporhora=costokwporhora;
-        this.pico=pico;
+        this.pico=new ArrayList<>();
     } 
     
     public Plan_Energia(){}    
     
     public void agregarHoraPico(Horario_pico pic){
-        
+        getPico().add(pic);     
     }
 }
