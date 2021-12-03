@@ -12,6 +12,7 @@ import Usuario.Abonados;
 import Usuario.Usuario;
 import com.mycompany.proyectopoomaven.Correo;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -172,6 +173,11 @@ public class Sistema {
     public static LocalDate StringToDate(String fecha) {
         DateTimeFormatter fec = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         return LocalDate.parse(fecha, fec);
+    }
+    
+    public static LocalTime StringToTime(String hora){
+        DateTimeFormatter fec = DateTimeFormatter.ofPattern("HH:MM:SS");
+        return LocalTime.parse(hora, fec);
     }
 
     public static void enviarCorreo(String destinatario, String asunto, String contenido) {

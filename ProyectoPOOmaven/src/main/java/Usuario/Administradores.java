@@ -134,15 +134,28 @@ public class Administradores extends Usuario {
             
                 numeroPro = sc.nextInt();
                 sc.nextLine();
-            
             if (numeroPro < 0 || numeroPro > 24) {
                 System.out.println("Valor no valido");
             }
         } while (numeroPro < 0 || numeroPro > 24);
         do {
-           
+            for(int i=1;i<=numeroPro;i++){
+                System.out.println("Ingrese el indice de las provincias: ");
+                nombrespro = sc.nextInt();
+                if(0<=nombrespro && nombrespro<=24){
+                    provinciasPlan.add(Sistema.getProvincias().get(nombrespro-1));
+                }
+                else{
+                    System.out.println("Valores fuera de rango");
+                }
+            }
         } while (nombrespro < 0 || nombrespro > 24);
-
+        
+        System.out.println("Ingrese el cargo Base: ");
+        cargoBase = sc.nextDouble();
+        sc.nextLine();
+        System.out.println("Ingrese las horas pico: ");
+        
     }
 
     public static void RegistrarMedidor(Scanner sc) {
