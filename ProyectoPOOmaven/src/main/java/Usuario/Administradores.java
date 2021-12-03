@@ -186,6 +186,10 @@ public class Administradores extends Usuario {
             correo = sc.nextLine();
             //crear contrasenia 8 caracteres minimo con una mayuscula y un digito
             contrasenia = crearContrasenia();
+            System.out.println("Ingresar direccion: ");
+            direccion = sc.nextLine();
+            System.out.println("Tipos de medidores\n1)INTELIGENTE\n2)ANALOGICO\nIngrese su opcion(1/2):");
+            
         }
     }
 
