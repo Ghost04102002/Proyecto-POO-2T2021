@@ -21,6 +21,11 @@ public class Informacion {
     public static Sistema informacionSistema(){
         Sistema sis = new Sistema();
         
+        Provincia[] pro = Provincia.values();
+        for(int i=0; i < pro.length;i++){
+            Sistema.getProvincias().add(pro[i]);
+        }
+        
         String nombre,contrasenia,correo,direccion="";
         
         //Usuario1

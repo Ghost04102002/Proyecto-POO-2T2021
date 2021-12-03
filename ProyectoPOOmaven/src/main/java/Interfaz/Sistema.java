@@ -20,6 +20,7 @@ import java.util.ArrayList;
  * @author James Malavé
  */
 public class Sistema {
+
     /**
      * variables de intancia
      */
@@ -69,41 +70,40 @@ public class Sistema {
         Sistema.provincias = provincias;
     }
 
-   
     /**
      * Constructor vacio, inicializa las variables
      */
-    public Sistema(){
+    public Sistema() {
         this.usuarios = new ArrayList<>();
         this.planes = new ArrayList<>();
         this.medidores = new ArrayList<>();
         this.facturas = new ArrayList<>();
         this.provincias = new ArrayList<>();
     }
-    
-    
+
     /**
      * Buscar el Usuario ingresado por parametro en el sistema
+     *
      * @param user
      * @return
      */
-    public static Usuario buscarUsuario(ArrayList<Usuario> usuarios,String user){
-        for(Usuario us: usuarios){
-            if(us!=null){
-                if(us.getNombre_usu().equals(user)){
+    public static Usuario buscarUsuario(ArrayList<Usuario> usuarios, String user) {
+        for (Usuario us : usuarios) {
+            if (us != null) {
+                if (us.getNombre_usu().equals(user)) {
                     return us;
                 }
             }
         }
         return null;
     }
-    
-    public static Usuario buscarUsuario(String cedula,ArrayList<Usuario> usuarios){
-        for(Usuario us: usuarios){
-            if(us!=null){
-                if(us instanceof Abonados){
-                    Abonados ab = (Abonados)us;
-                    if(ab.getCedula().equals(cedula)){
+
+    public static Usuario buscarUsuario(String cedula, ArrayList<Usuario> usuarios) {
+        for (Usuario us : usuarios) {
+            if (us != null) {
+                if (us instanceof Abonados) {
+                    Abonados ab = (Abonados) us;
+                    if (ab.getCedula().equals(cedula)) {
                         return ab;
                     }
                 }
@@ -111,32 +111,34 @@ public class Sistema {
         }
         return null;
     }
-    
+
     /**
      * Buscar el Medidor ingresado por parametro en el sistema
+     *
      * @param codigo
      * @return
      */
-    public static Medidor buscarMedidor(ArrayList<Medidor> medidores,String codigo){
-        for(Medidor med : medidores){
-            if(med!=null){
-                if(med.getCodigo().equals(codigo)){
+    public static Medidor buscarMedidor(ArrayList<Medidor> medidores, String codigo) {
+        for (Medidor med : medidores) {
+            if (med != null) {
+                if (med.getCodigo().equals(codigo)) {
                     return med;
-                }    
+                }
             }
         }
         return null;
     }
-    
+
     /**
      * Busca Factura ingresado por parametro en el sistema
+     *
      * @param codigo
      * @return
      */
-    public static Factura buscarFactura(ArrayList<Factura> facturas,String codigo){
-        for(Factura fac: facturas){
-            if(fac!=null){
-                if(fac.getCodigo().equals(codigo)){
+    public static Factura buscarFactura(ArrayList<Factura> facturas, String codigo) {
+        for (Factura fac : facturas) {
+            if (fac != null) {
+                if (fac.getCodigo().equals(codigo)) {
                     return fac;
                 }
             }
@@ -144,43 +146,38 @@ public class Sistema {
         return null;
     }
 
-    public static boolean validarInicio(Usuario user, String contrasena){
-        if(user.getContrasema().equals(contrasena)){
+    public static boolean validarInicio(Usuario user, String contrasena) {
+        if (user.getContrasema().equals(contrasena)) {
             return true;
         }
-        return false; 
+        return false;
     }
-    
-    
-    public static Usuario loginSesion(ArrayList<Usuario> usuarios,String usuario, String contrasena){
-        Usuario user = buscarUsuario(usuarios,usuario);
-        if(user!=null){
-            if(validarInicio(user,contrasena)){
+
+    public static Usuario loginSesion(ArrayList<Usuario> usuarios, String usuario, String contrasena) {
+        Usuario user = buscarUsuario(usuarios, usuario);
+        if (user != null) {
+            if (validarInicio(user, contrasena)) {
                 return user;
             }
         }
         return null;
     }
-    
-    public static void agregarProvinciasSistema(){
-        Provincia[] pro = Provincia.values();
-        for(int i = 0; i>pro.length;i++){
-            if()
-        }
-    }
+
 
     /**
      *
      * @param fecha
      * @return
      */
-    public static LocalDate StringToDate(String fecha){               
+    public static LocalDate StringToDate(String fecha) {
         DateTimeFormatter fec = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        return LocalDate.parse(fecha, fec);        
+        return LocalDate.parse(fecha, fec);
     }
-    
-    public static void enviarCorreo(String destinatario,String asunto,String contenido){
+
+    public static void enviarCorreo(String destinatario, String asunto, String contenido) {
         Correo.enviarEmail(destinatario, asunto, contenido);
     }
-    
+
+
+
 }

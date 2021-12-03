@@ -9,6 +9,7 @@ import static Interfaz.Menu.menuSistema;
 import Modelo.Comercial;
 import Modelo.Horario_pico;
 import Provincia.Provincia;
+import static Usuario.Administradores.RegistrarPlan;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,6 +26,6 @@ public class Interfaz {
         
         sistema = new Sistema();
         sistema = informacionSistema();
-        
+        RegistrarPlan(Sistema.getProvincias(),sc);
     }
 }

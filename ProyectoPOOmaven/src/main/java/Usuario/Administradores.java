@@ -102,12 +102,12 @@ public class Administradores extends Usuario {
     }
 
     public static void RegistrarPlan(ArrayList<Provincia> Provincias, Scanner sc) {
-        System.out.println("\n Registro de Plan");
+        System.out.println("\t Registro de Plan\n");
 
         String tipoPlan, validar = "";
 
         ArrayList<Provincia> provinciasPlan = new ArrayList<>();
-        
+
         int nombrespro = 0;
         int numeroPro = 0;
 
@@ -118,6 +118,7 @@ public class Administradores extends Usuario {
         do {
             System.out.println("Ingrese el nombre del Plan: ");
             tipoPlan = sc.nextLine();
+            System.out.println(Sistema.getPlanes());
             if (validarPlan(Sistema.getPlanes(), tipoPlan)) {
                 System.out.println("Ingrese el costo del KiloVatioPorHora: ");
                 costoKiloVatio = sc.nextDouble();
@@ -125,20 +126,24 @@ public class Administradores extends Usuario {
                 System.out.println("Las Provincias del Ecuador");
                 int contador = 1;
                 for (Provincia s : Sistema.getProvincias()) {
-                    System.out.println(contador + s.toString());
+                    System.out.println(contador + "." + s.toString());
                     contador++;
                 }
-                System.out.println("En cuantas provincias desee que este disponible: ");
-                numeroPro = sc.nextInt();
-                sc.nextLine();
-                for (int i = 1; i <= numeroPro; i++) {
-                    System.out.println("Ingrese el indice de la provincia:");
-                    nombrespro = sc.nextInt();
+                do {
+                    System.out.println("En cuantas provincias desee que este disponible: ");
+                    numeroPro = sc.nextInt();
                     sc.nextLine();
-                    provinciasPlan.add(buscarProvincia(Sistema.getProvincias(), Sistema.getProvincias().get(i-1).toString()));
-                }
+                    do {
+                        for (int i = 1; i <= numeroPro; i++) {
+                            System.out.println(i + ".Ingrese el indice de la provincia:");
+                            nombrespro = sc.nextInt();
+                            sc.nextLine();
+                            provinciasPlan.add(Sistema.getProvincias().get(nombrespro - 1));
+                        }
+                    } while (nombrespro < 0 || nombrespro > 24);
+                } while (numeroPro < 0 || numeroPro > 24);
             } else {
-                System.out.println("Nombre del Plan ya registrado");
+                System.out.println("Nombre del Plan ya registrado\n");
                 validar = "S";
             }
         } while (validar.equals("S"));
@@ -165,6 +170,17 @@ public class Administradores extends Usuario {
         }
     }
 
+    public static boolean validarPlan(ArrayList<Plan_Energia> planes, String tipoPlan) {
+        for (Plan_Energia plan : planes) {
+            if (plan != null) {
+                if (plan.getNombre().equals(tipoPlan)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public static Provincia buscarProvincia(ArrayList<Provincia> provincias, String provincia) {
         for (Provincia pro : provincias) {
             if (pro != null) {
@@ -174,14 +190,5 @@ public class Administradores extends Usuario {
             }
         }
         return null;
-    }
-
-    public static boolean validarPlan(ArrayList<Plan_Energia> planes, String tipoPlan) {
-        for (Plan_Energia plan : planes) {
-            if (!plan.getNombre().equals(tipoPlan)) {
-                return true;
-            }
-        }
-        return false;
     }
 }
