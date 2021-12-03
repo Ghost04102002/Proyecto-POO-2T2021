@@ -12,8 +12,6 @@ import Provincia.Provincia;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
-import Modelo.TipoPlan;
-import static Modelo.TipoPlan.COMERCIAL;
 import java.time.Instant;
 import java.util.Date;
 /**

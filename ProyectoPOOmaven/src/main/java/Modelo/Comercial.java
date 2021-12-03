@@ -4,8 +4,6 @@
  */
 package Modelo;
 
-
-import static Modelo.TipoPlan.COMERCIAL;
 import static Provincia.Provincia.AZUAY;
 import static Provincia.Provincia.BOLIVAR;
 import static Provincia.Provincia.CANIAR;
@@ -23,10 +21,10 @@ import static Provincia.Provincia.LOJA;
  *
  * @author Eduart Macias
  */
+public class Comercial extends Plan_Energia {
 
-public class  Comercial extends Plan_Energia {
-    public Comercial(){
-        super(COMERCIAL.toString(),10,7.99);
+    public Comercial() {
+        super("COMERCIAL", 10, 7.99);
         getProvincias().add(AZUAY);
         getProvincias().add(CANIAR);
         getProvincias().add(CARCHI);
@@ -38,6 +36,6 @@ public class  Comercial extends Plan_Energia {
         getProvincias().add(GUAYAS);
         getProvincias().add(IMBABURA);
         getProvincias().add(LOJA);
-        getProvincias().add(BOLIVAR);    
-    }   
+        getProvincias().add(BOLIVAR);
+    }
 }

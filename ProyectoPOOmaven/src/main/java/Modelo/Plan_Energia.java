@@ -26,13 +26,10 @@ public class Plan_Energia {
         return nombre;
     }
 
-    public void setNombre(TipoPlan nombre) {
-        this.nombre = nombre.toString();
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public void setNombre(String nombre){
-        this.nombre=nombre;
-    }
-    
+
     public double getCargo_base() {
         return cargo_base;
     }
@@ -64,14 +61,10 @@ public class Plan_Energia {
     public void setPico(ArrayList<Horario_pico> pico) {
         this.pico = pico;
     }
+
+
     
-    public Plan_Energia(TipoPlan nombre, double cargo_base,double costokwporhora){
-        this.nombre = nombre.toString();
-        this.provincias = new ArrayList<>();
-        this.cargo_base=cargo_base;
-        this.costokwporhora=costokwporhora;
-        this.pico=new ArrayList<>();
-    }
+    
     public Plan_Energia(String nombre, double cargo_base,double costokwporhora){
         this.nombre = nombre;
         this.provincias = new ArrayList<>();
