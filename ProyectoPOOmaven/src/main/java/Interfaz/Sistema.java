@@ -7,9 +7,6 @@ package Interfaz;
 import Medidores.Medidor;
 import Modelo.Factura;
 import Modelo.Plan_Energia;
-import Modelo.TipoPlan;
-import static Modelo.TipoPlan.COMERCIAL;
-import static Modelo.TipoPlan.RESIDENCIAL;
 import Usuario.Abonados;
 import Usuario.Usuario;
 import com.mycompany.proyectopoomaven.Correo;
@@ -169,7 +166,7 @@ public class Sistema {
         return LocalDate.parse(fecha, fec);        
     }
     
-    public static void enviarCorreo(){
+    public static void enviarCorreo(String destinatario,String asunto,String contenido){
         Correo.enviarEmail(destinatario, asunto, contenido);
     }
     
