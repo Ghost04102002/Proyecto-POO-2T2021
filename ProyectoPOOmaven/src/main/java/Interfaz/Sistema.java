@@ -7,6 +7,7 @@ package Interfaz;
 import Medidores.Medidor;
 import Modelo.Factura;
 import Modelo.Plan_Energia;
+import Provincia.Provincia;
 import Usuario.Abonados;
 import Usuario.Usuario;
 import com.mycompany.proyectopoomaven.Correo;
@@ -26,6 +27,7 @@ public class Sistema {
     private static ArrayList<Medidor> medidores;
     private static ArrayList<Factura> facturas;
     private static ArrayList<Usuario> usuarios;
+    private static ArrayList<Provincia> provincias;
 
     public static ArrayList<Plan_Energia> getPlanes() {
         return planes;
@@ -59,8 +61,15 @@ public class Sistema {
         Sistema.usuarios = usuarios;
     }
 
+    public static ArrayList<Provincia> getProvincias() {
+        return provincias;
+    }
 
-    
+    public static void setProvincias(ArrayList<Provincia> provincias) {
+        Sistema.provincias = provincias;
+    }
+
+   
     /**
      * Constructor vacio, inicializa las variables
      */
@@ -69,6 +78,7 @@ public class Sistema {
         this.planes = new ArrayList<>();
         this.medidores = new ArrayList<>();
         this.facturas = new ArrayList<>();
+        this.provincias = new ArrayList<>();
     }
     
     
@@ -152,10 +162,13 @@ public class Sistema {
         return null;
     }
     
-    public static boolean validarPlan(String tipoPlan){
-        return false;
+    public static void agregarProvinciasSistema(){
+        Provincia[] pro = Provincia.values();
+        for(int i = 0; i>pro.length;i++){
+            if()
+        }
     }
-    
+
     /**
      *
      * @param fecha

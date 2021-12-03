@@ -14,12 +14,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.Instant;
 import java.util.Date;
+
 /**
  *
  * @author malav
  */
 public class Administradores extends Usuario {
-    
+
     private String nombreAbonado;
     private String cedulaAbonado;
     private String correoAbonado;
@@ -74,96 +75,113 @@ public class Administradores extends Usuario {
     public void setTipoPlan(Plan_Energia tipoPlan) {
         this.tipoPlan = tipoPlan;
     }
-    
-    
+
     /**
      * Constructor que inicializa las variables de instancia
+     *
      * @param usuario
      * @param contrasema
      */
-    
-    public Administradores(String usuario, String contrasema){
-        super(usuario,contrasema);
+    public Administradores(String usuario, String contrasema) {
+        super(usuario, contrasema);
     }
-    
-        
-    public Administradores(String usuario,String contrasema,String nombreAbonado,
-            String cedulaAbonado,String correoAbonado,String direccion){
-        this(usuario,contrasema);
+
+    public Administradores(String usuario, String contrasema, String nombreAbonado,
+            String cedulaAbonado, String correoAbonado, String direccion) {
+        this(usuario, contrasema);
         this.nombreAbonado = nombreAbonado;
         this.cedulaAbonado = cedulaAbonado;
         this.correoAbonado = correoAbonado;
         this.direccionInstalarMedidor = direccion;
     }
-    
-    
+
     /**
      * Constructor vacio
      */
-    public Administradores(){}   
-    
-    
-    public static void RegistrarPlan(ArrayList<Provincia> Provincias, Scanner sc){
+    public Administradores() {
+    }
+
+    public static void RegistrarPlan(ArrayList<Provincia> Provincias, Scanner sc) {
         System.out.println("\n Registro de Plan");
+
+        String tipoPlan, validar = "";
+
+        ArrayList<Provincia> provinciasPlan = new ArrayList<>();
         
-        String tipoPlan, nombrespro,validar = "";
-        
+        int nombrespro = 0;
         int numeroPro = 0;
-        
-        double costoKiloVatio,cargoBase = 0;
-        
+
+        double costoKiloVatio, cargoBase = 0;
+
         LocalTime horaspico;
-        
-        
-        
-        do{
+
+        do {
             System.out.println("Ingrese el nombre del Plan: ");
             tipoPlan = sc.nextLine();
-            System.out.println("Ingrese el costo del KiloVatioPorHora: ");
-            costoKiloVatio = sc.nextDouble();
-            sc.nextLine();
-            System.out.println("En cuantas provincias desee que este disponible: ");
-            numeroPro = sc.nextInt();
-            sc.nextLine();
-            for(int i=1; i<=numeroPro ; i++){
-                System.out.println("Ingrese el nombre de la provincia nº"+i+":");
-                nombrespro = sc.nextLine();
-                
+            if (validarPlan(Sistema.getPlanes(), tipoPlan)) {
+                System.out.println("Ingrese el costo del KiloVatioPorHora: ");
+                costoKiloVatio = sc.nextDouble();
+                sc.nextLine();
+                System.out.println("Las Provincias del Ecuador");
+                int contador = 1;
+                for (Provincia s : Sistema.getProvincias()) {
+                    System.out.println(contador + s.toString());
+                    contador++;
+                }
+                System.out.println("En cuantas provincias desee que este disponible: ");
+                numeroPro = sc.nextInt();
+                sc.nextLine();
+                for (int i = 1; i <= numeroPro; i++) {
+                    System.out.println("Ingrese el indice de la provincia:");
+                    nombrespro = sc.nextInt();
+                    sc.nextLine();
+                    provinciasPlan.add(buscarProvincia(Sistema.getProvincias(), Sistema.getProvincias().get(i-1).toString()));
+                }
+            } else {
+                System.out.println("Nombre del Plan ya registrado");
+                validar = "S";
             }
-        }while(validar.equals("S"));
+        } while (validar.equals("S"));
     }
-    
-    public static void RegistrarMedidor(Scanner sc){
+
+    public static void RegistrarMedidor(Scanner sc) {
         System.out.println("\n Registro Medidor");
         System.out.println("Ingrese el numero de cedula: ");
         String cedula = sc.nextLine();
         Usuario ab = Sistema.buscarUsuario(cedula, Sistema.getUsuarios());
-        if(ab!=null){
-            
-        }else{
-            
+        if (ab != null) {
+
+        } else {
+
         }
     }
-    
-    public static void SimularMediciones(){}
-    
-    public static void RealizarFacturacion(){
-        for(Factura fac: Sistema.getFacturas()){
+
+    public static void SimularMediciones() {
+    }
+
+    public static void RealizarFacturacion() {
+        for (Factura fac : Sistema.getFacturas()) {
             fac.FinalizarFactura();
         }
     }
-    
-    public static Provincia buscarProvincia(ArrayList<Provincia> provincias,String provincia){
-        for(Provincia pro : provincias){
-            if(pro!=null){
-                if(pro.toString().equals(provincia)){
+
+    public static Provincia buscarProvincia(ArrayList<Provincia> provincias, String provincia) {
+        for (Provincia pro : provincias) {
+            if (pro != null) {
+                if (pro.toString().equals(provincia)) {
                     return pro;
                 }
             }
         }
         return null;
     }
-    
-    
-    
+
+    public static boolean validarPlan(ArrayList<Plan_Energia> planes, String tipoPlan) {
+        for (Plan_Energia plan : planes) {
+            if (!plan.getNombre().equals(tipoPlan)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

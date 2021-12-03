@@ -30,7 +30,7 @@ public class Med_digital extends Medidor {
     @Override
     public double CalcularValorPagar(LocalDateTime fechaAccion) {
         double TotalPagar = 0;
-        TotalPagar=getPlan().getCargo_base()+(getPlan().getCostokwporhora()*getConsumo())+2*(getPlan().getCostokwporhora()*(getPlan().getPico().get(getPico().size()-1).getConsumopico()));
+        //TotalPagar=getPlan().getCargo_base()+(getPlan().getCostokwporhora()*getConsumo())+2*(getPlan().getCostokwporhora()*(getPlan().getPico().get(getPico().size()-1).getConsumopico()));
         return TotalPagar;     
     }
 

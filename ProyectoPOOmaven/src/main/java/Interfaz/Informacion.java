@@ -6,9 +6,11 @@
 package Interfaz;
 
 import Medidores.Med_analogico;
+import Provincia.Provincia;
 import Usuario.Abonados;
 import Usuario.Administradores;
 import Usuario.Operarios;
+import java.util.ArrayList;
 
 /**
  *
