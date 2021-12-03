@@ -172,14 +172,20 @@ public class Administradores extends Usuario {
     }
 
     public static void RegistrarMedidor(Scanner sc) {
+        String nombre,correo,cedula,contrasenia,direccion,tipoPlan,tipoMedidor = "";
         System.out.println("\n Registro Medidor");
         System.out.println("Ingrese el numero de cedula: ");
-        String cedula = sc.nextLine();
+        cedula = sc.nextLine();
         Usuario ab = Sistema.buscarUsuario(cedula, Sistema.getUsuarios());
         if (ab != null) {
 
         } else {
-
+            System.out.println("Ingrese el nombre del Abonado: ");
+            nombre = sc.nextLine();
+            System.out.println("Ingrese su correo electronico: ");
+            correo = sc.nextLine();
+            //crear contrasenia 8 caracteres minimo con una mayuscula y un digito
+            contrasenia = crearContrasenia();
         }
     }
 
@@ -215,4 +221,8 @@ public class Administradores extends Usuario {
         return null;
     }
     
+    //completar ese metodo
+    public static String crearContrasenia(){
+        return "";
+    }
 }
