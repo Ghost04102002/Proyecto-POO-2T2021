@@ -26,7 +26,7 @@ import static Provincia.Provincia.LOJA;
 
 public class  Comercial extends Plan_Energia {
     public Comercial(){
-        super(COMERCIAL,10,7.99);
+        super(COMERCIAL.toString(),10,7.99);
         getProvincias().add(AZUAY);
         getProvincias().add(CANIAR);
         getProvincias().add(CARCHI);

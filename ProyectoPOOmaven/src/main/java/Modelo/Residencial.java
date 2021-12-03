@@ -24,7 +24,7 @@ import static Provincia.Provincia.ZAMORACHINCHIPE;
  */
 public class  Residencial extends Plan_Energia {
     public Residencial(){
-        super(RESIDENCIAL,15,10.44);
+        super(RESIDENCIAL.toString(),15,10.44);
         getProvincias().add(LOSRIOS); 
         getProvincias().add(MANABI);
         getProvincias().add(MORONASANTIAGO);
