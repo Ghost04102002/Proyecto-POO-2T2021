@@ -10,6 +10,7 @@ import static Interfaz.Sistema.buscarMedidor;
 import Medidores.Medidor;
 import Modelo.Factura;
 import Modelo.Lectura;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -133,7 +134,7 @@ public class Abonados extends Usuario {
         }
     }
     
-    public void ConsultarConsumoPorHora(ArrayList<Medidor> medidores,String codigo,LocalDateTime Inicio, LocalDateTime fin){
+    public void ConsultarConsumoPorHora(ArrayList<Medidor> medidores,String codigo,LocalDate Inicio, LocalDate fin){
         Medidor med = buscarMedidor(medidores,codigo);
         if(med instanceof Med_digital){
             Med_digital me = (Med_digital)med;
