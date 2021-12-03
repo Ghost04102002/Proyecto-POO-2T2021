@@ -7,8 +7,10 @@ package Usuario;
 import Medidores.Med_analogico;
 import Medidores.Medidor;
 import Interfaz.Sistema;
+import static Interfaz.Sistema.buscarMedidor;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -17,7 +19,6 @@ import java.util.ArrayList;
 public class Operarios extends Usuario {
     
     private String codigo;
-    private Sistema sis;
 
     /**
      *
@@ -47,13 +48,16 @@ public class Operarios extends Usuario {
      * @param codigo
      * @param lectura
      */
-    public void RegistrarMedicion(ArrayList<Medidor> medidores,String codigo, double lectura){
-        Medidor med = sis.buscarMedidor(medidores,codigo);
+    public void RegistrarMedicion(ArrayList<Medidor> medidores,String codigo, Scanner sc){
+        Medidor med = buscarMedidor(medidores,codigo);
+        double lectura = 0;
         if(med!=null){
             if(med instanceof Med_analogico){
                 Med_analogico me = (Med_analogico)med;
+                System.out.println(me.toString());
                 System.out.println("Ingrese la lectura:");
-                
+                lectura = sc.nextDouble();
+                sc.nextLine();
             }
         }else{
             System.out.println("Medidor no encontrado en el sistema");

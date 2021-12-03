@@ -16,7 +16,10 @@ import Modelo.Horario_pico;
 import Provincia.Provincia;
 import Usuario.Abonados;
 import Usuario.Administradores;
+import static Usuario.Administradores.RealizarFacturacion;
+import static Usuario.Administradores.RegistrarMedidor;
 import static Usuario.Administradores.RegistrarPlan;
+import static Usuario.Administradores.SimularMediciones;
 import Usuario.Operarios;
 import Usuario.Usuario;
 import java.time.LocalDateTime;
@@ -127,12 +130,16 @@ public class Interfaz {
                 
                 switch(opciones){
                     case"1":
+                        RegistrarPlan(Sistema.getProvincias(),sc);
                         break;
                     case "2":
+                        RegistrarMedidor(sc);
                         break;
                     case "3":
+                        SimularMediciones();
                         break;
                     case "4":
+                        RealizarFacturacion();
                         break;
                     case "5":
                         System.out.println("\nVolviendo al Menu Prinicipal...\n");
@@ -157,6 +164,9 @@ public class Interfaz {
                 
                 switch(opciones){
                     case "1":
+                        System.out.println("Ingrese el codigo del medidor: ");
+                        codigo = sc.nextLine();
+                        op.RegistrarMedicion(Sistema.getMedidores(), codigo, sc);
                         break;
                     case "2":
                         System.out.println("\nVolviendo al Menu Prinicipal...\n");
