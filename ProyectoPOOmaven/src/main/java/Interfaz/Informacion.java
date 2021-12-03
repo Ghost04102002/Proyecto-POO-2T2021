@@ -6,6 +6,9 @@
 package Interfaz;
 
 import Medidores.Med_analogico;
+import Medidores.Med_digital;
+import Modelo.Comercial;
+import Modelo.Residencial;
 import Provincia.Provincia;
 import Usuario.Abonados;
 import Usuario.Administradores;
@@ -25,6 +28,12 @@ public class Informacion {
         for(int i=0; i < pro.length;i++){
             Sistema.getProvincias().add(pro[i]);
         }
+        
+        //Planes por defecto
+        Comercial comercial = new Comercial();
+        Sistema.getPlanes().add(comercial);
+        Residencial residencial = new Residencial();
+        Sistema.getPlanes().add(residencial);
         
         String nombre,contrasenia,correo,direccion="";
         
@@ -71,6 +80,21 @@ public class Informacion {
         
         Med_analogico med1 = new Med_analogico();
         
+        //Medidor Digital
+        
+        Med_digital med2 = new Med_digital();
+        
+        ab1.getMedidores().add(med1);
+        ab1.getMedidores().add(med2);
+        
+        //Medidor Analogico
+        
+        Med_analogico med3 = new Med_analogico();
+        ab2.getMedidores().add(med3);
+        
+        Sistema.getMedidores().add(med1);
+        Sistema.getMedidores().add(med2);
+        Sistema.getMedidores().add(med3);
         
         return sis;
     }
