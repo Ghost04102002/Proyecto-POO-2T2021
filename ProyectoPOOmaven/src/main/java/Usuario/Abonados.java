@@ -64,6 +64,7 @@ public class Abonados extends Usuario {
     
     public Abonados(String nombre,String clave, String cedula, String correo){
         this(nombre,clave);
+        this.facturas = new ArrayList<>();
         this.cedula = cedula;
         this.correo = correo;
     }

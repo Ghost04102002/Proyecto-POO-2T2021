@@ -60,6 +60,13 @@ public class Informacion {
         
         Abonados ab2 = new Abonados(nombre,contrasenia,correo,direccion);
         
+        //Agregar Usuario
+        Sistema.getUsuarios().add(ad);
+        Sistema.getUsuarios().add(ope1);
+        Sistema.getUsuarios().add(op2);
+        Sistema.getUsuarios().add(ab1);
+        Sistema.getUsuarios().add(ab2);
+        
         //Medidor Analogico
         
         Med_analogico med1 = new Med_analogico();

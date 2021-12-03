@@ -131,8 +131,10 @@ public class Administradores extends Usuario {
         }
         do {
             System.out.println("En cuantas provincias desee que este disponible: ");
-            numeroPro = sc.nextInt();
-            sc.nextLine();
+            
+                numeroPro = sc.nextInt();
+                sc.nextLine();
+            
             if (numeroPro < 0 || numeroPro > 24) {
                 System.out.println("Valor no valido");
             }
