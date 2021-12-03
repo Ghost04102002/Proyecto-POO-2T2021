@@ -12,10 +12,11 @@ import java.util.ArrayList;
  * @author James Malavé
  */
 public class Plan_Energia {
+
     /**
      * variables de instancia
      */
-    
+
     private String nombre;
     private double cargo_base;
     private ArrayList<Provincia> provincias;
@@ -61,18 +62,19 @@ public class Plan_Energia {
     public void setPico(ArrayList<Horario_pico> pico) {
         this.pico = pico;
     }
-    
-    public Plan_Energia(String nombre, double cargo_base,double costokwporhora){
+
+    public Plan_Energia(String nombre, double cargo_base, double costokwporhora) {
         this.nombre = nombre;
         this.provincias = new ArrayList<>();
-        this.cargo_base=cargo_base;
-        this.costokwporhora=costokwporhora;
-        this.pico=new ArrayList<>();
-    } 
-    
-    public Plan_Energia(){}    
-    
-    public void agregarHoraPico(Horario_pico pic){
-        getPico().add(pic);     
+        this.cargo_base = cargo_base;
+        this.costokwporhora = costokwporhora;
+        this.pico = new ArrayList<>();
+    }
+
+    public Plan_Energia() {
+    }
+
+    public void agregarHoraPico(Horario_pico pic) {
+        getPico().add(pic);
     }
 }
