@@ -5,14 +5,17 @@
  */
 package Interfaz;
 
+
 import Medidores.Med_analogico;
 import Medidores.Med_digital;
 import Modelo.Comercial;
+import Modelo.Horario_pico;
 import Modelo.Residencial;
 import Provincia.Provincia;
 import Usuario.Abonados;
 import Usuario.Administradores;
 import Usuario.Operarios;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 /**
@@ -31,6 +34,8 @@ public class Informacion {
         
         //Planes por defecto
         Comercial comercial = new Comercial();
+        Horario_pico pico = new Horario_pico(LocalTime.of(8, 0, 0),LocalTime.of(9, 0, 0));
+        Horario_pico pico2 = new Horario_pico(LocalTime.of(13, 0, 0),LocalTime.of(14, 0, 0));
         Sistema.getPlanes().add(comercial);
         Residencial residencial = new Residencial();
         Sistema.getPlanes().add(residencial);

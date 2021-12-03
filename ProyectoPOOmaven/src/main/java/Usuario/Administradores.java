@@ -5,8 +5,10 @@
 package Usuario;
 
 import Interfaz.Sistema;
+import static Interfaz.Sistema.StringToTime;
 import Medidores.Medidor;
 import Modelo.Factura;
+import Modelo.Horario_pico;
 import Modelo.Plan_Energia;
 import Provincia.Provincia;
 import java.time.LocalTime;
@@ -104,16 +106,17 @@ public class Administradores extends Usuario {
     public static void RegistrarPlan(ArrayList<Provincia> Provincias, Scanner sc) {
         System.out.println("\t Registro de Plan\n");
 
-        String tipoPlan, validar = "";
+        String tipoPlan, validar,horaspc,horafin = "";
 
         ArrayList<Provincia> provinciasPlan = new ArrayList<>();
+        ArrayList<Horario_pico> horas = new ArrayList<>();
 
         int nombrespro = 0;
         int numeroPro = 0;
 
         double costoKiloVatio, cargoBase = 0;
 
-        LocalTime horaspico;
+        LocalTime horaspico,horasfin;
 
         do {
             System.out.println("Ingrese el nombre del Plan: ");
@@ -154,7 +157,17 @@ public class Administradores extends Usuario {
         System.out.println("Ingrese el cargo Base: ");
         cargoBase = sc.nextDouble();
         sc.nextLine();
-        System.out.println("Ingrese las horas pico: ");
+        do{
+            System.out.println("Ingrese el Inicio de la horapico (HH:MM:SS): ");
+            horaspc = sc.nextLine();
+            horaspico = StringToTime(horaspc);
+            System.out.println("Ingrese el Fin de la horapico");
+            horafin = sc.nextLine();
+            horasfin = StringToTime(horafin);
+            Horario_pico pico = new Horario_pico(horaspico,horasfin);
+            System.out.println("Desea agregar mas horas(S/N):");
+            validar = sc.nextLine().toUpperCase();
+        }while(validar.equals("S"));
         
     }
 
@@ -201,4 +214,5 @@ public class Administradores extends Usuario {
         }
         return null;
     }
+    
 }

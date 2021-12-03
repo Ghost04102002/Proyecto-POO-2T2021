@@ -176,8 +176,8 @@ public class Sistema {
     }
     
     public static LocalTime StringToTime(String hora){
-        DateTimeFormatter fec = DateTimeFormatter.ofPattern("HH:MM:SS");
-        return LocalTime.parse(hora, fec);
+        String[] formato = hora.split(":");
+        return LocalTime.of(Integer.parseInt(formato[0]), Integer.parseInt(formato[1]), Integer.parseInt(formato[1]));
     }
 
     public static void enviarCorreo(String destinatario, String asunto, String contenido) {

@@ -43,9 +43,13 @@ public class Horario_pico {
         this.consumopico=consumopico;
     }
     
-    public Horario_pico(LocalTime horaInicio,LocalTime horaFin, int consumopico){
+     public Horario_pico(LocalTime horaInicio,LocalTime horaFin){
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
+    }
+    
+    public Horario_pico(LocalTime horaInicio,LocalTime horaFin, int consumopico){
+        this(horaInicio,horaFin);
         this.consumopico=consumopico;
     }
     
