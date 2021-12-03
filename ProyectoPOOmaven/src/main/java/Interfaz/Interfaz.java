@@ -26,5 +26,6 @@ public class Interfaz {
         sistema = new Sistema();
         sistema = informacionSistema();
         
+        System.out.println("");
     }
 }
