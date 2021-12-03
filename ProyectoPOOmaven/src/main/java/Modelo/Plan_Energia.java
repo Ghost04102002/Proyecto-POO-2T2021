@@ -62,6 +62,14 @@ public class Plan_Energia {
     public void setPico(ArrayList<Horario_pico> pico) {
         this.pico = pico;
     }
+    
+        public Plan_Energia(String nombre, double cargo_base, double costokwporhora, ArrayList<Provincia> provincias, ArrayList<Horario_pico> horaspico) {
+        this.nombre = nombre;
+        this.provincias = provincias;
+        this.cargo_base = cargo_base;
+        this.costokwporhora = costokwporhora;
+        this.pico = horaspico;
+    }
 
     public Plan_Energia(String nombre, double cargo_base, double costokwporhora) {
         this.nombre = nombre;

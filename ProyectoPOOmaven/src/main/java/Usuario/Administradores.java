@@ -164,11 +164,11 @@ public class Administradores extends Usuario {
             System.out.println("Ingrese el Fin de la horapico");
             horafin = sc.nextLine();
             horasfin = StringToTime(horafin);
-            Horario_pico pico = new Horario_pico(horaspico,horasfin);
+            horas.add(new Horario_pico(horaspico,horasfin));
             System.out.println("Desea agregar mas horas(S/N):");
             validar = sc.nextLine().toUpperCase();
         }while(validar.equals("S"));
-        
+        Plan_Energia plan = new Plan_Energia(tipoPlan,cargoBase,costoKiloVatio,provinciasPlan,horas);
     }
 
     public static void RegistrarMedidor(Scanner sc) {
