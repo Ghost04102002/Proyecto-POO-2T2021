@@ -73,7 +73,7 @@ public class Menu {
     }
     
     public static void menuUsuario(Usuario us){
-        if(us instanceof Administradores){
+        if(us instanceof Administrador){
             menuAdministrador();
         }
         if(us instanceof Operarios){

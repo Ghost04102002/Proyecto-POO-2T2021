@@ -21,7 +21,7 @@ import java.util.Date;
  *
  * @author malav
  */
-public class Administradores extends Usuario {
+public class Administrador extends Usuario {
 
     private String nombreAbonado;
     private String cedulaAbonado;
@@ -84,11 +84,11 @@ public class Administradores extends Usuario {
      * @param usuario
      * @param contrasema
      */
-    public Administradores(String usuario, String contrasema) {
+    public Administrador(String usuario, String contrasema) {
         super(usuario, contrasema);
     }
 
-    public Administradores(String usuario, String contrasema, String nombreAbonado,
+    public Administrador(String usuario, String contrasema, String nombreAbonado,
             String cedulaAbonado, String correoAbonado, String direccion) {
         this(usuario, contrasema);
         this.nombreAbonado = nombreAbonado;
@@ -100,7 +100,7 @@ public class Administradores extends Usuario {
     /**
      * Constructor vacio
      */
-    public Administradores() {
+    public Administrador() {
     }
 
     public static void RegistrarPlan(ArrayList<Provincia> Provincias, Scanner sc) {

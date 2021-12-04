@@ -15,7 +15,7 @@ import Modelo.Lectura;
 import Modelo.Residencial;
 import Provincia.Provincia;
 import Usuario.Abonado;
-import Usuario.Administradores;
+import Usuario.Administrador;
 import Usuario.Operarios;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -48,7 +48,7 @@ public class Informacion {
         
         //Usuario1
         
-        Administradores ad = new Administradores("admin","superadmin");
+        Administrador ad = new Administrador("admin","superadmin");
         
         //Usuario2
         nombre = "Sara";

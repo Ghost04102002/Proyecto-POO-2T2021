@@ -15,11 +15,11 @@ import Modelo.Comercial;
 import Modelo.Horario_pico;
 import Provincia.Provincia;
 import Usuario.Abonado;
-import Usuario.Administradores;
-import static Usuario.Administradores.RealizarFacturacion;
-import static Usuario.Administradores.RegistrarMedidor;
-import static Usuario.Administradores.RegistrarPlan;
-import static Usuario.Administradores.SimularMediciones;
+import Usuario.Administrador;
+import static Usuario.Administrador.RealizarFacturacion;
+import static Usuario.Administrador.RegistrarMedidor;
+import static Usuario.Administrador.RegistrarPlan;
+import static Usuario.Administrador.SimularMediciones;
 import Usuario.Operarios;
 import Usuario.Usuario;
 import java.time.LocalDateTime;
@@ -118,8 +118,8 @@ public class Interfaz {
             }
         }
         
-        if(us instanceof Administradores){
-            Administradores ad = (Administradores)us;
+        if(us instanceof Administrador){
+            Administrador ad = (Administrador)us;
             while(!salirmenuAdministrador){
                 menuAdministrador();
                 opciones = sc.nextLine();
