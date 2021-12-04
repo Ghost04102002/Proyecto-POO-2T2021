@@ -31,23 +31,22 @@ import java.util.Scanner;
  * @author James Malavé
  */
 public class Interfaz {
-    
+
     public static Sistema sistema;
-    
+
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        
+
         Usuario nuevoUsuario = new Usuario();
         sistema = new Sistema();
         sistema = informacionSistema();
 
-        
         int opcion = 0;
         boolean salirPrograma = false;
         boolean salirmenuAbonado = false;
         boolean salirmenuAdministrador = false;
         boolean salirmenuOperario = false;
-        
+
         while (!salirPrograma) {
             opcion = menuSistema(sc);
             switch (opcion) {
@@ -72,10 +71,10 @@ public class Interfaz {
             }
         }
     }
-    
+
     public static void cargarPrograma(boolean salirmenuAbonado, boolean salirmenuAdministrador, boolean salirmenuOperario, Usuario us, Scanner sc) {
-        String opciones, codigo, fechaInicio,fechaFin = "";
-        
+        String opciones, codigo, fechaInicio, fechaFin = "";
+
         if (us instanceof Abonado) {
             Abonado ab = (Abonado) us;
             while (!salirmenuAbonado) {
@@ -85,7 +84,7 @@ public class Interfaz {
                         && !opciones.equalsIgnoreCase("3") && !opciones.equalsIgnoreCase("4")) {
                     System.out.println("Opcion no valida");
                 }
-                
+
                 switch (opciones) {
                     case "1":
                         ab.mostrarFacturasAsociadas();
@@ -107,7 +106,7 @@ public class Interfaz {
                         fechaInicio = sc.nextLine();
                         System.out.println("Ingrese Fecha Fin: ");
                         fechaFin = sc.nextLine();
-                        ab.ConsultarConsumoPorHora(ab.getMedidores(), codigo, StringToDate(fechaInicio),StringToDate(fechaFin));
+                        ab.ConsultarConsumoPorHora(ab.getMedidores(), codigo, StringToDate(fechaInicio), StringToDate(fechaFin));
                         break;
                     case "4":
                         System.out.println("\nVolviendo al Menu Principal...\n");
@@ -117,27 +116,31 @@ public class Interfaz {
                 break;
             }
         }
-        
-        if(us instanceof Administrador){
-            Administrador ad = (Administrador)us;
-            while(!salirmenuAdministrador){
+
+        if (us instanceof Administrador) {
+            Administrador ad = (Administrador) us;
+            while (!salirmenuAdministrador) {
                 menuAdministrador();
                 opciones = sc.nextLine();
                 if (!opciones.equalsIgnoreCase("1") && !opciones.equalsIgnoreCase("2")
-                        && !opciones.equalsIgnoreCase("3") && !opciones.equalsIgnoreCase("4") 
+                        && !opciones.equalsIgnoreCase("3") && !opciones.equalsIgnoreCase("4")
                         && !opciones.equalsIgnoreCase("5")) {
                     System.out.println("Opcion no valida");
                 }
-                
-                switch(opciones){
-                    case"1":
-                        RegistrarPlan(Sistema.getProvincias(),sc);
+
+                switch (opciones) {
+                    case "1":
+                        RegistrarPlan(Sistema.getProvincias(), sc);
                         break;
                     case "2":
                         RegistrarMedidor(sc);
                         break;
                     case "3":
-                        SimularMediciones();
+                        System.out.println("Ingrese fecha inicial:");
+                        String fi = sc.nextLine();
+                        System.out.println("Ingrese fecha final:");
+                        String ff = sc.nextLine();
+                        SimularMediciones(fi,ff);
                         break;
                     case "4":
                         RealizarFacturacion();
@@ -147,23 +150,23 @@ public class Interfaz {
                         salirmenuAdministrador = true;
                         break;
                 }
-                
+
                 break;
-                
+
             }
         }
-        
-        if(us instanceof Operarios){
-            Operarios op = (Operarios)us;
-            while(!salirmenuOperario){
+
+        if (us instanceof Operarios) {
+            Operarios op = (Operarios) us;
+            while (!salirmenuOperario) {
                 menuOperario();
                 opciones = sc.nextLine();
-                if (!opciones.equalsIgnoreCase("1") && 
-                        !opciones.equalsIgnoreCase("2")) {
+                if (!opciones.equalsIgnoreCase("1")
+                        && !opciones.equalsIgnoreCase("2")) {
                     System.out.println("Opcion no valida");
                 }
-                
-                switch(opciones){
+
+                switch (opciones) {
                     case "1":
                         System.out.println("Ingrese el codigo del medidor: ");
                         codigo = sc.nextLine();
@@ -174,10 +177,10 @@ public class Interfaz {
                         salirmenuOperario = true;
                         break;
                 }
-                
+
                 break;
             }
         }
     }
-    
+
 }

@@ -5,6 +5,7 @@
 package Usuario;
 
 import Interfaz.Sistema;
+import static Interfaz.Sistema.StringToDate;
 import static Interfaz.Sistema.StringToTime;
 import Medidores.Medidor;
 import Modelo.Factura;
@@ -16,6 +17,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Random;
 
@@ -203,7 +205,11 @@ public class Administrador extends Usuario {
         }
     }
 
-    public static void SimularMediciones() {
+    public static void SimularMediciones(String fechaInicio, String fechaFin) {
+        LocalDate i =StringToDate(fechaInicio);
+        LocalDate f =StringToDate(fechaFin);
+//        for(Medidor m: medidores){}
+        
     }
 
     public static void RealizarFacturacion() {
