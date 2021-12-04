@@ -87,7 +87,7 @@ public class Informacion {
         //Medidor Analogico
         
         Med_analogico med1 = new Med_analogico();
-        Lectura lec1 = new Lectura(LocalDateTime.of(0, Month.MARCH, 0, 0, 0);
+        Lectura lec1 = new Lectura(LocalDateTime.of(2021, Month.DECEMBER, 0, 0, 0),0);
         Lectura lec2 = new Lectura(LocalDateTime.now(),200);
         Factura fac1 = new Factura("COOM-001",med1,comercial,LocalDateTime.now(),lec1,lec2);
         //Medidor Digital
