@@ -40,8 +40,7 @@ public class Interfaz {
         Usuario nuevoUsuario = new Usuario();
         sistema = new Sistema();
         sistema = informacionSistema();
-        
-        Sistema.getFacturas().get(0).toString();
+
         
         int opcion = 0;
         boolean salirPrograma = false;

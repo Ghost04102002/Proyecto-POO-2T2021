@@ -168,7 +168,10 @@ public class Administradores extends Usuario {
             System.out.println("Desea agregar mas horas(S/N):");
             validar = sc.nextLine().toUpperCase();
         }while(validar.equals("S"));
+        System.out.println("\nRegistrando Plan...\n");
         Plan_Energia plan = new Plan_Energia(tipoPlan,cargoBase,costoKiloVatio,provinciasPlan,horas);
+        Sistema.getPlanes().add(plan);
+        System.out.println("\nRegistro Exitoso\n");
     }
 
     public static void RegistrarMedidor(Scanner sc) {
