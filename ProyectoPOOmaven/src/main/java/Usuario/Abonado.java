@@ -97,18 +97,18 @@ public class Abonado extends Usuario {
     }
     
     public void mostrarMedidoresAsociados(){
-        System.out.println("Medidores Asociados");
+        System.out.println("\tMedidores Asociados");
         System.out.printf("%s%20s%20s%n","Código Medidor","Tipo Medidor"
                 ,"Nombre del Plan");
         for(Medidor med: medidores){
             if(med!=null){
                 if(med instanceof Med_digital){
-                System.out.printf("4d%20.2f%20s%n",med.getCodigo(),
-                        ((Med_digital)med).getMedidor(),med.getPlan().getNombre());       
+                    System.out.printf("%s%27s%20s%n",med.getCodigo(),
+                        ((Med_digital)med).getMedidor().toString(),med.getPlan().getNombre());       
                 }
                 else{
-                     System.out.printf("4d%20.2f%20s%n",med.getCodigo(),
-                            ((Med_analogico)med).getMedidor(),
+                     System.out.printf("%s%27s%20s%n",med.getCodigo(),
+                            ((Med_analogico)med).getMedidor().toString(),
                             med.getPlan().getNombre());
                 }
             }    

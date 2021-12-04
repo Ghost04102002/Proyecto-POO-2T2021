@@ -11,6 +11,9 @@ import static Interfaz.Menu.menuSistema;
 import static Interfaz.Menu.menuUsuario;
 import static Interfaz.Menu.verificarInicioUsuario;
 import static Interfaz.Sistema.StringToDate;
+import Medidores.Med_analogico;
+import Medidores.Med_digital;
+import Medidores.Medidor;
 import Modelo.Comercial;
 import Modelo.Horario_pico;
 import Provincia.Provincia;
@@ -39,7 +42,8 @@ public class Interfaz {
         Usuario nuevoUsuario = new Usuario();
         sistema = new Sistema();
         sistema = informacionSistema();
-        System.out.println(Sistema.getMedidores().toString());
+        
+
 
         int opcion = 0;
         boolean salirPrograma = false;

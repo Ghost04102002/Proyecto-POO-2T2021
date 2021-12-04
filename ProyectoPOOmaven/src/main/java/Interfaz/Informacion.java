@@ -8,6 +8,7 @@ package Interfaz;
 
 import Medidores.Med_analogico;
 import Medidores.Med_digital;
+import Medidores.Medidor;
 import Modelo.Comercial;
 import Modelo.Factura;
 import Modelo.Horario_pico;
@@ -15,6 +16,7 @@ import Modelo.Lectura;
 import Modelo.Residencial;
 import Provincia.Provincia;
 import static Provincia.Provincia.AZUAY;
+import static Provincia.Provincia.CARCHI;
 import static Provincia.Provincia.PICHINCHA;
 import Usuario.Abonado;
 import Usuario.Administrador;
@@ -96,9 +98,10 @@ public class Informacion {
         ab1.getMedidores().add(med2);
         
         //Medidor Analogico 
-        
-        Med_analogico med3 = new Med_analogico();
+     
+        Med_analogico med3 = new Med_analogico("COOM003",Sistema.getPlanes().get(0),"CALLE...",CARCHI);
         ab2.getMedidores().add(med3);
+        
         
         Sistema.getMedidores().add(med1);
         Sistema.getMedidores().add(med2);
