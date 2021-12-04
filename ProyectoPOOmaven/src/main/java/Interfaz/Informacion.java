@@ -9,13 +9,17 @@ package Interfaz;
 import Medidores.Med_analogico;
 import Medidores.Med_digital;
 import Modelo.Comercial;
+import Modelo.Factura;
 import Modelo.Horario_pico;
+import Modelo.Lectura;
 import Modelo.Residencial;
 import Provincia.Provincia;
 import Usuario.Abonados;
 import Usuario.Administradores;
 import Usuario.Operarios;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.ArrayList;
 
 /**
@@ -64,7 +68,6 @@ public class Informacion {
         direccion = "";
         
         Abonados ab1 = new Abonados(nombre,contrasenia,correo,direccion);
-        
         //Usuario5
         
         nombre = "Pablo";
@@ -84,15 +87,18 @@ public class Informacion {
         //Medidor Analogico
         
         Med_analogico med1 = new Med_analogico();
-        
+        Lectura lec1 = new Lectura(LocalDateTime.of(0, Month.MARCH, 0, 0, 0);
+        Lectura lec2 = new Lectura(LocalDateTime.now(),200);
+        Factura fac1 = new Factura("COOM-001",med1,comercial,LocalDateTime.now(),lec1,lec2);
         //Medidor Digital
         
+        Sistema.getFacturas().add(fac1);
         Med_digital med2 = new Med_digital();
         
         ab1.getMedidores().add(med1);
         ab1.getMedidores().add(med2);
         
-        //Medidor Analogico
+        //Medidor Analogico 
         
         Med_analogico med3 = new Med_analogico();
         ab2.getMedidores().add(med3);

@@ -85,7 +85,18 @@ public class Factura {
     public void setLecturaactual(Lectura lecturaactual){
         this.lecturaactual=lecturaactual;
     }
- 
+    
+    public Factura(String codigo, Medidor medidor,Plan_Energia plan,LocalDateTime ultimafechaCobrada,Lectura lecturaanterior,Lectura lecturaactual){
+        this.fecha_emision = LocalDateTime.now();
+        this.codigo = codigo;
+        this.Plan = plan;
+        this.ultimafechaCobrada = ultimafechaCobrada;
+        this.medidor = medidor;
+        this.lecturaanterior = lecturaanterior;
+    }
+    
+    public Factura(){}
+    
     public long encontrarDiasFacturados(){
          return ChronoUnit.DAYS.between(fecha_emision,ultimafechaCobrada);
     }
