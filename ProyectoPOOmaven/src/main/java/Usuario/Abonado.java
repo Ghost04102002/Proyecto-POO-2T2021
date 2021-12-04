@@ -102,9 +102,16 @@ public class Abonado extends Usuario {
                 ,"Nombre del Plan");
         for(Medidor med: medidores){
             if(med!=null){
+                if(med instanceof Med_digital){
                 System.out.printf("4d%20.2f%20s%n",med.getCodigo(),
                         ((Med_digital)med).getMedidor(),med.getPlan().getNombre());       
-            }
+                }
+                else{
+                     System.out.printf("4d%20.2f%20s%n",med.getCodigo(),
+                            ((Med_analogico)med).getMedidor(),
+                            med.getPlan().getNombre());
+                }
+            }    
         }
     }
     
@@ -126,7 +133,7 @@ public class Abonado extends Usuario {
                 ,"Nombre del Plan");
         for(Medidor med: medidores){
             if(med!=null){
-                if(med instanceof Med_analogico){
+                if(med instanceof Med_digital){
                     System.out.printf("4d%20.2f%20s%n",med.getCodigo(),
                             ((Med_digital)med).getMedidor(),
                             med.getPlan().getNombre());

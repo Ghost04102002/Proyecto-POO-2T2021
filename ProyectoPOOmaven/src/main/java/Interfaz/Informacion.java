@@ -14,6 +14,8 @@ import Modelo.Horario_pico;
 import Modelo.Lectura;
 import Modelo.Residencial;
 import Provincia.Provincia;
+import static Provincia.Provincia.AZUAY;
+import static Provincia.Provincia.PICHINCHA;
 import Usuario.Abonado;
 import Usuario.Administrador;
 import Usuario.Operarios;
@@ -86,9 +88,9 @@ public class Informacion {
         
         //Medidor Analogico
         
-        Med_analogico med1 = new Med_analogico();
+        Med_analogico med1 = new Med_analogico("COOM001",Sistema.getPlanes().get(0),"CALLE ...",AZUAY);
         
-        Med_digital med2 = new Med_digital();
+        Med_digital med2 = new Med_digital("COOM002",Sistema.getPlanes().get(1),"CALLE...",PICHINCHA);
         
         ab1.getMedidores().add(med1);
         ab1.getMedidores().add(med2);

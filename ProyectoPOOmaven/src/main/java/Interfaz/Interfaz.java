@@ -36,10 +36,10 @@ public class Interfaz {
 
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-
         Usuario nuevoUsuario = new Usuario();
         sistema = new Sistema();
         sistema = informacionSistema();
+        System.out.println(Sistema.getMedidores().toString());
 
         int opcion = 0;
         boolean salirPrograma = false;
