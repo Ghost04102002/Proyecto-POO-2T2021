@@ -58,7 +58,7 @@ public class Informacion {
         
         //Usuario3
         
-        Operarios op2 = new Operarios("Larry","cns1");
+        Operarios op2 = new Operarios("Larrry","cns1");
         
         //Usuario4
         
