@@ -39,6 +39,8 @@ public class Med_digital extends Medidor {
         getLecturas().add(lec);
     }
 
-    
+    public String toString(){
+        return medidor.name();
+    }
     
 }

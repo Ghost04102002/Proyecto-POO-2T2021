@@ -15,6 +15,7 @@ import Medidores.Med_analogico;
 import Medidores.Med_digital;
 import Medidores.Medidor;
 import Modelo.Comercial;
+import Modelo.Factura;
 import Modelo.Horario_pico;
 import Provincia.Provincia;
 import Usuario.Abonado;
@@ -43,7 +44,16 @@ public class Interfaz {
         sistema = new Sistema();
         sistema = informacionSistema();
         
-
+        System.out.println("Facturas Asociadas");
+        System.out.printf("%s%20s%20s%n","Número Factura","Fecha Emisión"
+                , "Código Medidor");
+        for(Factura fac: Sistema.getFacturas()){
+            if(fac!=null){
+                System.out.println(fac.getCodigo());
+                //System.out.printf("s%20s%20s%n",fac.getCodigo(),
+                        //fac.getFecha_emision(),fac.getMedidor().getCodigo());
+            }
+        }
 
         int opcion = 0;
         boolean salirPrograma = false;

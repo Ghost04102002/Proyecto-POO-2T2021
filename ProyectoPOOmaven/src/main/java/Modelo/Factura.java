@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import Medidores.Med_analogico;
 import Medidores.Medidor;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
@@ -84,6 +85,13 @@ public class Factura {
     }
     public void setLecturaactual(Lectura lecturaactual){
         this.lecturaactual=lecturaactual;
+    }
+    
+    public Factura(String string, Med_analogico med1, Plan_Energia plan) {
+       this.fecha_emision = LocalDateTime.now();
+        this.codigo = codigo;
+        this.Plan = plan;
+        this.medidor = medidor;
     }
     
     public Factura(String codigo, Medidor medidor,Plan_Energia plan,LocalDateTime ultimafechaCobrada,Lectura lecturaanterior,Lectura lecturaactual){

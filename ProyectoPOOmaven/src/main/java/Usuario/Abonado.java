@@ -80,7 +80,7 @@ public class Abonado extends Usuario {
                 , "Código Medidor");
         for(Factura fac: facturas){
             if(fac!=null){
-                System.out.printf("%4d%20.2f%20s%n",fac.getCodigo(),
+                System.out.printf("%s%27s%20s%n",fac.getCodigo(),
                         fac.getFecha_emision(),fac.getMedidor().getCodigo());
             }
         }
@@ -118,7 +118,6 @@ public class Abonado extends Usuario {
     public void ConsultarHistoricoFacturado(ArrayList<Medidor> medidores,String codigo){
         Medidor med = buscarMedidor(medidores,codigo);
         if(med!=null){
-            
             System.out.println(med.toString()+"\nKiloVatios Consumidos:");
         }else{
             System.out.println("Medidor no encontrado");

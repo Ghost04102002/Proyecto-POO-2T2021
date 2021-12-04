@@ -102,6 +102,9 @@ public class Informacion {
         Med_analogico med3 = new Med_analogico("COOM003",Sistema.getPlanes().get(0),"CALLE...",CARCHI);
         ab2.getMedidores().add(med3);
         
+        Factura fac1 = new Factura("3575677",med1,med1.getPlan());
+        ab1.getFacturas().add(fac1);
+        Sistema.getFacturas().add(fac1);
         
         Sistema.getMedidores().add(med1);
         Sistema.getMedidores().add(med2);
