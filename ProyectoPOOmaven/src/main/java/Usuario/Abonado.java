@@ -18,7 +18,7 @@ import java.util.ArrayList;
  *
  * @author James Malavé
  */
-public class Abonados extends Usuario {
+public class Abonado extends Usuario {
     /**
      * Variables de Instancia
      */
@@ -59,11 +59,11 @@ public class Abonados extends Usuario {
         this.cedula = cedula;
     }
 
-    public Abonados(String nombre, String clave){
+    public Abonado(String nombre, String clave){
         super(nombre,clave);
     }
     
-    public Abonados(String nombre,String clave, String cedula, String correo){
+    public Abonado(String nombre,String clave, String cedula, String correo){
         this(nombre,clave);
         this.facturas = new ArrayList<>();
         this.medidores = new ArrayList<>();
@@ -71,7 +71,7 @@ public class Abonados extends Usuario {
         this.correo = correo;
     }
     
-    public Abonados(){}
+    public Abonado(){}
     
     
     public void mostrarFacturasAsociadas(){

@@ -14,7 +14,7 @@ import static Interfaz.Sistema.StringToDate;
 import Modelo.Comercial;
 import Modelo.Horario_pico;
 import Provincia.Provincia;
-import Usuario.Abonados;
+import Usuario.Abonado;
 import Usuario.Administradores;
 import static Usuario.Administradores.RealizarFacturacion;
 import static Usuario.Administradores.RegistrarMedidor;
@@ -76,8 +76,8 @@ public class Interfaz {
     public static void cargarPrograma(boolean salirmenuAbonado, boolean salirmenuAdministrador, boolean salirmenuOperario, Usuario us, Scanner sc) {
         String opciones, codigo, fechaInicio,fechaFin = "";
         
-        if (us instanceof Abonados) {
-            Abonados ab = (Abonados) us;
+        if (us instanceof Abonado) {
+            Abonado ab = (Abonado) us;
             while (!salirmenuAbonado) {
                 menuUsuario(us);
                 opciones = sc.nextLine();

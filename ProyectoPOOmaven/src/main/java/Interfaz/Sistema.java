@@ -8,7 +8,7 @@ import Medidores.Medidor;
 import Modelo.Factura;
 import Modelo.Plan_Energia;
 import Provincia.Provincia;
-import Usuario.Abonados;
+import Usuario.Abonado;
 import Usuario.Usuario;
 import com.mycompany.proyectopoomaven.Correo;
 import java.time.LocalDate;
@@ -102,8 +102,8 @@ public class Sistema {
     public static Usuario buscarUsuario(String cedula, ArrayList<Usuario> usuarios) {
         for (Usuario us : usuarios) {
             if (us != null) {
-                if (us instanceof Abonados) {
-                    Abonados ab = (Abonados) us;
+                if (us instanceof Abonado) {
+                    Abonado ab = (Abonado) us;
                     if (ab.getCedula().equals(cedula)) {
                         return ab;
                     }

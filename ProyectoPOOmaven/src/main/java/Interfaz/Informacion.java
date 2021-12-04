@@ -14,7 +14,7 @@ import Modelo.Horario_pico;
 import Modelo.Lectura;
 import Modelo.Residencial;
 import Provincia.Provincia;
-import Usuario.Abonados;
+import Usuario.Abonado;
 import Usuario.Administradores;
 import Usuario.Operarios;
 import java.time.LocalDateTime;
@@ -67,7 +67,7 @@ public class Informacion {
         correo = "";
         direccion = "";
         
-        Abonados ab1 = new Abonados(nombre,contrasenia,correo,direccion);
+        Abonado ab1 = new Abonado(nombre,contrasenia,correo,direccion);
         //Usuario5
         
         nombre = "Pablo";
@@ -75,7 +75,7 @@ public class Informacion {
         correo = "";
         direccion = "";
         
-        Abonados ab2 = new Abonados(nombre,contrasenia,correo,direccion);
+        Abonado ab2 = new Abonado(nombre,contrasenia,correo,direccion);
         
         //Agregar Usuario
         Sistema.getUsuarios().add(ad);
