@@ -87,7 +87,7 @@ public class Factura {
         this.lecturaactual=lecturaactual;
     }
     
-    public Factura(String string, Med_analogico med1, Plan_Energia plan) {
+    public Factura(String string, Medidor med1, Plan_Energia plan) {
        this.fecha_emision = LocalDateTime.now();
         this.codigo = codigo;
         this.Plan = plan;

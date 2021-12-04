@@ -105,6 +105,9 @@ public class Informacion {
         Factura fac1 = new Factura("3575677",med1,med1.getPlan());
         ab1.getFacturas().add(fac1);
         Sistema.getFacturas().add(fac1);
+        Factura fac2 = new Factura("3575678",med2,med2.getPlan());
+        ab1.getFacturas().add(fac2);
+        Sistema.getFacturas().add(fac2);
         
         Sistema.getMedidores().add(med1);
         Sistema.getMedidores().add(med2);
