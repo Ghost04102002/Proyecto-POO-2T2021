@@ -20,7 +20,7 @@ import static Usuario.Administrador.RealizarFacturacion;
 import static Usuario.Administrador.RegistrarMedidor;
 import static Usuario.Administrador.RegistrarPlan;
 import static Usuario.Administrador.SimularMediciones;
-import Usuario.Operario;
+import Usuario.Operarios;
 import Usuario.Usuario;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -153,8 +153,8 @@ public class Interfaz {
             }
         }
         
-        if(us instanceof Operario){
-            Operario op = (Operario)us;
+        if(us instanceof Operarios){
+            Operarios op = (Operarios)us;
             while(!salirmenuOperario){
                 menuOperario();
                 opciones = sc.nextLine();

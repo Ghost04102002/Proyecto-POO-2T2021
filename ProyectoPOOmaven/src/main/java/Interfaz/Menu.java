@@ -76,7 +76,7 @@ public class Menu {
         if(us instanceof Administrador){
             menuAdministrador();
         }
-        if(us instanceof Operario){
+        if(us instanceof Operarios){
             menuOperario();
         }
         if(us instanceof Abonado){
