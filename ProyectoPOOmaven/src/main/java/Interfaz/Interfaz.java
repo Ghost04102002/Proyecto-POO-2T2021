@@ -43,16 +43,6 @@ public class Interfaz {
         Usuario nuevoUsuario = new Usuario();
         sistema = new Sistema();
         sistema = informacionSistema();
-    
-        System.out.println("Facturas Asociadas");
-        System.out.printf("%s%20s%20s%n","Número Factura","Fecha Emisión"
-                , "Código Medidor");
-        for(Factura fac: Sistema.getFacturas()){
-            if(fac==null){
-                System.out.printf("s%20s%20s%n",fac.getCodigo(),
-                        fac.getFecha_emision(),fac.getMedidor().getCodigo());
-            }
-        }
 
         int opcion = 0;
         boolean salirPrograma = false;

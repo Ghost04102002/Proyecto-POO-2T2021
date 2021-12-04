@@ -118,7 +118,7 @@ public class Abonado extends Usuario {
     public void ConsultarHistoricoFacturado(ArrayList<Medidor> medidores,String codigo){
         Medidor med = buscarMedidor(medidores,codigo);
         if(med!=null){
-            System.out.println(med.toString()+"\nKiloVatios Consumidos:");
+            System.out.println(med.toString()+"\nKiloVatios Consumidos:"+med.getConsumo());
         }else{
             System.out.println("Medidor no encontrado");
         }
