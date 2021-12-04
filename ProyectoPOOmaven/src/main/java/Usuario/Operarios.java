@@ -48,19 +48,36 @@ public class Operarios extends Usuario {
      * @param codigo
      * @param lectura
      */
-    public void RegistrarMedicion(ArrayList<Medidor> medidores,String codigo, Scanner sc){
+    public static void RegistrarMedicion(ArrayList<Medidor> medidores,String codigo, Scanner sc){
         Medidor med = buscarMedidor(medidores,codigo);
         double lectura = 0;
         if(med!=null){
             if(med instanceof Med_analogico){
                 Med_analogico me = (Med_analogico)med;
-                System.out.println(me.toString());
+                System.out.println("Medidor"+me.toString()+"a nombre de "+buscarNombre(Sistema.getUsuarios(),codigo).getNombre_usu());
+                System.out.println("Ultima lectura realizada:" + me.getLecturas().get(me.getLecturas().size()-1).getFechaToma());
+                System.out.println("Lectura Anterior: " + me.getLecturas().get(me.getLecturas().size()-1).getKilovatios());
                 System.out.println("Ingrese la lectura:");
                 lectura = sc.nextDouble();
                 sc.nextLine();
+                System.out.println("KiloVatios consumidos:"+ (lectura-me.getLecturas().get(me.getLecturas().size()-1).getKilovatios()));
             }
         }else{
             System.out.println("Medidor no encontrado en el sistema");
         }
-    }        
+    }
+    
+    public static Usuario buscarNombre(ArrayList<Usuario> usuarios,String codigo){
+        for(Usuario us: usuarios){
+            if(us!=null){
+                if(us instanceof Abonado){
+                    Abonado ab = (Abonado)us;
+                    if(buscarMedidor(ab.getMedidores(),codigo).equals(codigo)){
+                        return ab;
+                    }
+                }
+            }
+        }    
+        return null;
+    }
 }
