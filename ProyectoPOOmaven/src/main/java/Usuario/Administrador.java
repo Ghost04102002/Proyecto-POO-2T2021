@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.Instant;
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -230,6 +231,13 @@ public class Administrador extends Usuario {
     
     //completar ese metodo
     public static String crearContrasenia(){
-        return "";
+        String caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        String password = "";
+        Random rnd = new Random();
+        for (int i = 0; i < 8; i++) {
+            int pos = rnd.nextInt(caracteres.length());
+            password += caracteres.charAt(pos);
+        }
+        return password;
     }
 }

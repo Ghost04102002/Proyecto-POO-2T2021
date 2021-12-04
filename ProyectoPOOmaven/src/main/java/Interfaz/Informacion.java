@@ -16,7 +16,7 @@ import Modelo.Residencial;
 import Provincia.Provincia;
 import Usuario.Abonado;
 import Usuario.Administrador;
-import Usuario.Operarios;
+import Usuario.Operario;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
@@ -54,11 +54,11 @@ public class Informacion {
         nombre = "Sara";
         contrasenia="SL10";
         
-        Operarios ope1 = new Operarios(nombre,contrasenia);
+        Operario ope1 = new Operario(nombre,contrasenia);
         
         //Usuario3
         
-        Operarios op2 = new Operarios("Larry","cns1");
+        Operario op2 = new Operario("Larry","cns1");
         
         //Usuario4
         
