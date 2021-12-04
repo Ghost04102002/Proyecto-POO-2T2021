@@ -37,4 +37,8 @@ public class Med_analogico extends Medidor {
     public void agregarLecutra(Lectura lec) {
         getLecturas().add(lec);
     }
+    
+    public String toString(){
+        return medidor.name();
+    }
 }
