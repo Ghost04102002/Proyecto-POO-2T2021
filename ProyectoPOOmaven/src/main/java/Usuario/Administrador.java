@@ -11,6 +11,7 @@ import Modelo.Factura;
 import Modelo.Horario_pico;
 import Modelo.Plan_Energia;
 import Provincia.Provincia;
+import com.mycompany.proyectopoomaven.Correo;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -188,12 +189,17 @@ public class Administrador extends Usuario {
             nombre = sc.nextLine();
             System.out.println("Ingrese su correo electronico: ");
             correo = sc.nextLine();
-            //crear contrasenia 8 caracteres minimo con una mayuscula y un digito
             contrasenia = crearContrasenia();
             System.out.println("Ingresar direccion: ");
             direccion = sc.nextLine();
             System.out.println("Tipos de medidores\n1)INTELIGENTE\n2)ANALOGICO\nIngrese su opcion(1/2):");
-            
+            String tm = sc.nextLine();
+            if("1".equals(tm)){tipoMedidor = "INTELIGENTE";}else if("2".equals(tm)){tipoMedidor="ANALOGICO";}
+            System.out.println("Ingrese el tipo de plan:");
+            tipoPlan = sc.nextLine();
+            String contenido = "usuario: "+cedula+"\ncontraseña: "+contrasenia+"\nDirección del medidor: "+direccion
+                    +"\nTipo de Medidor: "+tipoMedidor+"\nTipo de plan: "+tipoPlan;
+            Correo.enviarEmail(correo, "DATOS MEDIDOR", contenido);
         }
     }
 
