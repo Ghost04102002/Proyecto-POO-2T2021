@@ -411,8 +411,8 @@ public class Interfaz {
         Operario op2 = new Operario("operario2", "operario2");
         PlanEnergia pe1 = new PlanEnergia("Premium", Provincia.intToAL(1, 2, 3, 4, 5), 15, 5, LocalTime.of(19, 00), LocalTime.of(23, 00));
         PlanEnergia pe2 = new PlanEnergia("Basic", Provincia.intToAL(6, 7, 8), 3, 2, LocalTime.of(14, 00), LocalTime.of(20, 00));
-        Abonado ab1 = new Abonado("abonado1", "abonado1","0001");
-        Abonado ab2 = new Abonado("abonado2", "abonado2","0002");
+        Abonado ab1 = new Abonado("abonado1", "abonado1","testeotesting022@gmail.com","0987654321");
+        Abonado ab2 = new Abonado("abonado2", "abonado2","testeotesting022@gmail.com","0963852741");
         Analogico m1ab1 = new Analogico("A001", pe1, "Colinas de la Alborada", Provincia.GUAYAS);
         Inteligente m2ab1 = new Inteligente("I001", pe2, "Calle Galápagos y 10 de agosto", Provincia.SANTAELENA);
         Analogico mab2 = new Analogico("A002", pe1, "Florida", Provincia.GUAYAS);
