@@ -49,7 +49,7 @@ public class Abonado extends Usuario {
 
     public void mostrarMedidoresAsociados() {
         System.out.println("Facturas asociadas");
-        System.out.println("Número Factura\tFecha Emisión\tCódigo Medidor");
+        System.out.println("Código Medidor\tTipo Medidor\tNombre del Plan");
         this.medidores.forEach(m -> {
             String tipo;
             if (m instanceof Analogico) {
