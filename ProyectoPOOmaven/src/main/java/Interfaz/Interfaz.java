@@ -34,6 +34,7 @@ public class Interfaz {
             switch (opcion) {
                 case "1": {
                     opcion1();
+                    break;
                 }
                 case "2": {
                     System.out.println("Saliendo...");
