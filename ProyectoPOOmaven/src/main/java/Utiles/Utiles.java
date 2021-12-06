@@ -9,9 +9,9 @@ import Sistema.*;
 import java.time.LocalDateTime;
 import java.util.Random;
 
-
 public class Utiles {
-     public static String crearPswd() {
+
+    public static String crearPswd() {
         String caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         String password = "";
         Random rnd = new Random();
@@ -20,5 +20,18 @@ public class Utiles {
             password += caracteres.charAt(pos);
         }
         return password;
+    }
+
+    public static boolean validarFecha(String fecha) {
+        String[] fechaArr = fecha.split("-");
+        if (fechaArr.length == 3) {
+            boolean isNum1 = fechaArr[0].chars().allMatch(Character::isDigit);
+            boolean isNum2 = fechaArr[1].chars().allMatch(Character::isDigit);
+            boolean isNum3 = fechaArr[2].chars().allMatch(Character::isDigit);
+            if (isNum1 && isNum2 && isNum3) {
+                return true;
+            }
+        }
+        return false;
     }
 }
