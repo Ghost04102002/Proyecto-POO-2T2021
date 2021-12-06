@@ -295,21 +295,26 @@ public class Interfaz {
             String fechaI = sc.nextLine();
             try {
                 fechaInicio = LocalDate.parse(fechaI, formatter).atStartOfDay();
-                valFechaI = true;
+                    valFechaI = true;
             } catch (DateTimeParseException e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
                 System.out.println("La fecha fue ingresada en un formateo erróneo. (El formato es dd-mm-aaaa)");
             }
+
         }
-        boolean valFechaF = true;
+        boolean valFechaF = false;
         while (!valFechaF) {
-            System.out.println("Fecha Inicio:");
+            System.out.println("Fecha Fin:");
             String fechaF = sc.nextLine();
             try {
                 fechaFin = LocalDate.parse(fechaF, formatter).atStartOfDay();
-                valFechaF = true;
+                if (fechaFin != null && fechaFin.isAfter(fechaInicio)) {
+                    valFechaF = true;
+                }else{
+                    System.out.println("La fecha final debe ser superior a la fecha inicial.");
+                }
             } catch (DateTimeParseException e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
                 System.out.println("La fecha fue ingresada en un formateo erróneo. (El formato es dd-mm-aaaa)");
             }
         }
