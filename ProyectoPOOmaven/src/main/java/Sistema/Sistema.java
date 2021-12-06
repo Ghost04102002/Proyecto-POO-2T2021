@@ -109,8 +109,8 @@ public class Sistema {
         return codigo;
     }
 
-    public boolean verificarPrevio(String nombrePlan) {
-        return planes.stream().anyMatch(p -> (p.getNombre().equals(nombrePlan)));
+    public boolean verificarPrevio(String plan) {
+        return planes.stream().anyMatch(p -> (p.getNombre().equals(plan)));
     }
 
     public Usuario getUsuarioActivo() {
