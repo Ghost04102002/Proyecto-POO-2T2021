@@ -366,9 +366,11 @@ public class Interfaz {
             System.out.println("Ingrese la medida actual del medidor: ");
             try {
                 medida = sc.nextDouble();
+                sc.nextLine();
                 valMedida=true;
             }catch(Exception e){
                 System.out.println("No ingresó una medida correcta.");
+                sc.nextLine();
             }
 
         }
