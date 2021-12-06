@@ -37,7 +37,11 @@ public class Administrador extends Usuario {
     public void simularMediciones(Sistema s, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
         
         int c = 0;
-        c = s.getMedidoresSistema().stream().filter(m -> (m instanceof Inteligente)).map(_item -> 1).reduce(c, Integer::sum);
+        for(Medidor m: s.getMedidoresSistema()){
+            if(m instanceof Inteligente){
+                c++;
+            }
+        }
         System.out.println("Hay " + c + " medidor(es) inteligente(s):");
         for (Medidor m : s.getMedidoresSistema()) {
             if (m instanceof Inteligente) {
