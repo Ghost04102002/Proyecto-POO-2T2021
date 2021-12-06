@@ -62,6 +62,7 @@ public class Administrador extends Usuario {
             String codigo = s.generarCodigoFactura();
             Lectura lecturaAnterior = m.getLecturaUltimoCobro();
             Lectura lecturaActual = m.getLecturas().get(m.getLecturas().size() - 1);
+            lecturaActual.setCobrado(true);
             Factura f = new Factura(codigo, m, m.getPlan(), lecturaAnterior, lecturaActual);
             s.getFacturasSistema().add(f);
             Correo.enviarEmail(ab.getCorreo(), "Factura: "+codigo, f.toString());
