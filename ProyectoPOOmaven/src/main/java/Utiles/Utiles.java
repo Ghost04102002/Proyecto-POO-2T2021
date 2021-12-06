@@ -28,7 +28,10 @@ public class Utiles {
             boolean isNum1 = fechaArr[0].chars().allMatch(Character::isDigit);
             boolean isNum2 = fechaArr[1].chars().allMatch(Character::isDigit);
             boolean isNum3 = fechaArr[2].chars().allMatch(Character::isDigit);
-            if (isNum1 && isNum2 && isNum3) {
+            boolean valDay = fechaArr[0].length() == 2;
+            boolean valMonth = fechaArr[1].length() == 2;
+            boolean valYear = fechaArr[0].length() == 4;
+            if (isNum1 && isNum2 && isNum3 && valDay && valMonth && valYear) {
                 return true;
             }
         }
