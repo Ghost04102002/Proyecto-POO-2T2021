@@ -1,7 +1,5 @@
 package Usuarios;
 
-import Medidores.Medidor;
-import java.util.ArrayList;
 
 public class Usuario {
     private String username;
