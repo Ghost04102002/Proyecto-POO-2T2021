@@ -174,7 +174,8 @@ public class Interfaz {
     }
 
     /**
-     * Solicita provincia 
+     * Solicita provincia
+     *
      * @param varios
      * @return
      */
@@ -192,9 +193,11 @@ public class Interfaz {
         String prov = sc.nextLine();
         return prov;
     }
-    
+
     /**
-     * registrarPlan en Interfaz sirve para pedirle los datos al usuario del plan
+     * registrarPlan en Interfaz sirve para pedirle los datos al usuario del
+     * plan
+     *
      * @param admin
      */
     public static void registrarPlan(Administrador admin) {
@@ -341,7 +344,7 @@ public class Interfaz {
         System.out.println("Ingrese el código del medidor: ");
         String codigo = sc.nextLine();
         Object[] datos = sistema.buscarMedidor(codigo);
-        while (datos != null) {
+        while (datos == null) {
             System.out.println("El medidor con el código ingresado no existe.");
             System.out.println("Ingrese el código del medidor: ");
             codigo = sc.nextLine();
@@ -357,8 +360,18 @@ public class Interfaz {
         Lectura ultimaLectura = medidor.getLecturas().get(medidor.getLecturas().size() - 1);
         System.out.println("Medidor analógico a nombre de " + abonado.getUsername() + "\nÚltima lectura realizada en: " + ultimaLectura.getFechaToma()
                 + "Lectura anterior: " + ultimaLectura.getKilovatios() + " kw");
-        System.out.println("Ingrese la medida actual del medidor: ");
-        String medida = sc.nextLine();
+        double medida = 0;
+        boolean valMedida = false;
+        while (!valMedida) {
+            System.out.println("Ingrese la medida actual del medidor: ");
+            try {
+                medida = sc.nextDouble();
+                valMedida=true;
+            }catch(Exception e){
+                System.out.println("No ingresó una medida correcta.");
+            }
+
+        }
         op.registrarMedicion(sistema, abonado, medidor, medida, ultimaLectura);
     }
 

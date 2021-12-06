@@ -10,8 +10,8 @@ public class Operario extends Usuario {
         super(username, pswd);
     }
 
-    public void registrarMedicion(Sistema s, Abonado abonado, Medidor medidor, String medida, Lectura ultimaLectura) {
-        Lectura lec = new Lectura(this,Double.parseDouble(medida));
+    public void registrarMedicion(Sistema s, Abonado abonado, Medidor medidor, double medida, Lectura ultimaLectura) {
+        Lectura lec = new Lectura(this,medida);
         medidor.getLecturas().add(lec);
         double kwConsumidos = lec.getKilovatios() - ultimaLectura.getKilovatios();
         System.out.println("Kilovatios consumidos: " + kwConsumidos);
