@@ -1,32 +1,43 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Medidores;
 
-import Modelo.Lectura;
-import Modelo.Plan_Energia;
-import Provincia.Provincia;
+import Medidores.Lectura;
+import Sistema.PlanEnergia;
+import Sistema.Provincia;
 import java.time.LocalDateTime;
 import java.util.*;
+
 /**
  *
  * @author James Malavé
  */
 public abstract class Medidor {
-    /**
-     * Variables de instancia
-     */
-    
+
     private String codigo;
     private String direccion;
-    private Plan_Energia plan;
+    private PlanEnergia plan;
     private Provincia provincia;
     private double consumo;
     private ArrayList<Lectura> lecturas;
-    private Date ultimaFechaCobrada;
-    private Date consumoUltimaFecha;
 
+    public Medidor(String codigo, PlanEnergia plan, String direccion, Provincia provincia) {
+        this.codigo = codigo;
+        this.plan = plan;
+        this.direccion = direccion;
+        this.lecturas = new ArrayList<>();
+        this.provincia = provincia;
+        this.consumo = 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Codigo: " + codigo + "\nDireccion: " + direccion +
+                "Plan: " + plan + "\nProvincia: " + provincia + "\nConsumo: " + consumo + "\nLecturas: " + lecturas;
+    }
+    public ArrayList<Lectura> filtrarLecturas(LocalDateTime fechaI,LocalDateTime fechaF){
+        ArrayList<Lectura> filtradas = new ArrayList<>();
+        lecturas.stream().filter(a->a.getFechaToma().isAfter(fechaI)&&a.getFechaToma().isBefore(fechaF)).forEach(l->filtradas.add(l));
+        return filtradas;
+    }
     public String getCodigo() {
         return codigo;
     }
@@ -43,11 +54,11 @@ public abstract class Medidor {
         this.direccion = direccion;
     }
 
-    public Plan_Energia getPlan() {
+    public PlanEnergia getPlan() {
         return plan;
     }
 
-    public void setPlan(Plan_Energia plan) {
+    public void setPlan(PlanEnergia plan) {
         this.plan = plan;
     }
 
@@ -60,11 +71,12 @@ public abstract class Medidor {
     }
 
     public double getConsumo() {
-        return consumo;
-    }
-
-    public void setConsumo(double consumo) {
-        this.consumo = consumo;
+        if (lecturas.isEmpty()) {
+            return consumo;
+        } else {
+            consumo = lecturas.get(lecturas.size() - 1).getKilovatios();
+            return consumo;
+        }
     }
 
     public ArrayList<Lectura> getLecturas() {
@@ -75,33 +87,39 @@ public abstract class Medidor {
         this.lecturas = lecturas;
     }
 
-    public Date getUltimaFechaCobrada() {
-        return ultimaFechaCobrada;
+    public Lectura getLecturaUltimoCobro() {
+        Lectura lUltimoC = lecturas.get(0);
+        for(Lectura l: lecturas){
+            if(l.isCobrado()){
+                lUltimoC = l;
+            }
+        }
+        return lUltimoC;
     }
 
-    public void setUltimaFechaCobrada(Date ultimaFechaCobrada) {
-        this.ultimaFechaCobrada = ultimaFechaCobrada;
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
     }
 
-    public Date getConsumoUltimaFecha() {
-        return consumoUltimaFecha;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Medidor other = (Medidor) obj;
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        return true;
     }
-
-    public void setConsumoUltimaFecha(Date consumoUltimaFecha) {
-        this.consumoUltimaFecha = consumoUltimaFecha;
-    }
-
     
-    public Medidor(String codigo, Plan_Energia plan,String direccion, Provincia provincia){
-        this.codigo = codigo;
-        this.plan = plan;
-        this.direccion = direccion;
-        this.lecturas = new ArrayList<>();
-        this.provincia = provincia;
-    }
-    
-    public Medidor(){}
-    public abstract void agregarLecutra(Lectura lec);   
-    public abstract double CalcularValorPagar(LocalDateTime fechaAccion); 
-    public abstract String toString();
+    public abstract double CalcularValorPagar(LocalDateTime fechaAccion);
 }
