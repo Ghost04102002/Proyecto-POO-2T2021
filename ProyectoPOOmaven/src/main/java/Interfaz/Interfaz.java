@@ -173,6 +173,11 @@ public class Interfaz {
         }
     }
 
+    /**
+     * Solicita provincia 
+     * @param varios
+     * @return
+     */
     public static String pedirProvincia(boolean varios) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Las Provincias del Ecuador:");
@@ -187,7 +192,11 @@ public class Interfaz {
         String prov = sc.nextLine();
         return prov;
     }
-
+    
+    /**
+     * registrarPlan en Interfaz sirve para pedirle los datos al usuario del plan
+     * @param admin
+     */
     public static void registrarPlan(Administrador admin) {
         System.out.println("\tRegistro de Plan\n");
         String nombre = "";
