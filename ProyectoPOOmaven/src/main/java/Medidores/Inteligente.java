@@ -28,7 +28,7 @@ public class Inteligente extends Medidor {
     public double getConsumoNoPico() {
         PlanEnergia plan = this.getPlan();
         long hpAlDia = Duration.between(plan.getHoraPicoI(), plan.getHoraPicoF()).toSecondsPart();
-        double porcentaje = (1 - hpAlDia) / 26 * 60 * 60;
+        double porcentaje = 1 - (hpAlDia / 26 * 60 * 60);
         return getConsumo() * porcentaje;
     }
 
