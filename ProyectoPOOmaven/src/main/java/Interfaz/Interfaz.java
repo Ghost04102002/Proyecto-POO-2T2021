@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -285,22 +286,34 @@ public class Interfaz {
     }
 
     public static void simularMediciones(Administrador admin) {
-
-        System.out.println("Fecha Inicio:");
-        String fechaI = sc.nextLine();
-        while (!Utiles.validarFecha(fechaI)) {
-            System.out.println("La fecha fue ingresada en un formateo erróneo. (El formato es dd-mm-aaaa)");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDateTime fechaInicio = LocalDate.now().atStartOfDay();
+        LocalDateTime fechaFin = LocalDate.now().atStartOfDay();
+        boolean valFechaI = false;
+        while (!valFechaI) {
             System.out.println("Fecha Inicio:");
-            fechaI = sc.nextLine();
+            String fechaI = sc.nextLine();
+            try {
+                fechaInicio = LocalDate.parse(fechaI, formatter).atStartOfDay();
+                valFechaI = true;
+            } catch (DateTimeParseException e) {
+                System.out.println(e);
+                System.out.println("La fecha fue ingresada en un formateo erróneo. (El formato es dd-mm-aaaa)");
+            }
         }
-        System.out.println("Fecha Fin:");
-        String fechaF = sc.nextLine();
-        while (!Utiles.validarFecha(fechaF)) {
-            System.out.println("La fecha fue ingresada en un formateo erróneo. (El formato es dd-mm-aaaa)");
+        boolean valFechaF = true;
+        while (!valFechaF) {
             System.out.println("Fecha Inicio:");
-            fechaF = sc.nextLine();
+            String fechaF = sc.nextLine();
+            try {
+                fechaFin = LocalDate.parse(fechaF, formatter).atStartOfDay();
+                valFechaF = true;
+            } catch (DateTimeParseException e) {
+                System.out.println(e);
+                System.out.println("La fecha fue ingresada en un formateo erróneo. (El formato es dd-mm-aaaa)");
+            }
         }
-        admin.simularMediciones(sistema, fechaI, fechaF);
+        admin.simularMediciones(sistema, fechaInicio, fechaFin);
     }
 
     public static void realizarFacturacion(Administrador admin) {

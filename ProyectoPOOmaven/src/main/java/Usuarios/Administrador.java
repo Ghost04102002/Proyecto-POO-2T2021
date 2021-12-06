@@ -36,10 +36,8 @@ public class Administrador extends Usuario {
         s.getMedidoresSistema().add(medidor);
     }
 
-    public void simularMediciones(Sistema s, String fechaI, String fechaF) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDateTime fechaInicio = LocalDate.parse(fechaI, formatter).atStartOfDay();
-        LocalDateTime fechaFin = LocalDate.parse(fechaF, formatter).atStartOfDay();
+    public void simularMediciones(Sistema s, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+        
         int c = 0;
         c = s.getMedidoresSistema().stream().filter(m -> (m instanceof Inteligente)).map(_item -> 1).reduce(c, Integer::sum);
         System.out.println("Hay " + c + " medidor(es) inteligente(s):");
