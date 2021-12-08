@@ -26,7 +26,6 @@ public class Sistema {
             } else {
                 return false;
             }
-
         }
         return false;
     }
@@ -34,7 +33,6 @@ public class Sistema {
     public Abonado buscarAbonado(String cedula) {
         for (Usuario us : usuarios) {
             if (us != null) {
-            } else {
                 if (us instanceof Abonado) {
                     Abonado ab = (Abonado) us;
                     if (ab.getCedula().equals(cedula)) {

@@ -245,7 +245,7 @@ public class Interfaz {
         System.out.println("Plan registrado exitosamente.");
         System.out.println(sistema.getPlanes());
     }
-
+    
     public static void registrarMedidor(Administrador admin) {
         String nombre, correo, cedula, contrasenia, direccion, nombrePlan, tipoMedidor = "";
         System.out.println("\n Registro Medidor");
@@ -259,7 +259,9 @@ public class Interfaz {
             System.out.println("Ingrese su correo electronico: ");
             correo = sc.nextLine();
             contrasenia = Utiles.crearPswd();
-            ab = new Abonado(nombre, contrasenia, cedula, correo);
+            ab = new Abonado(nombre, contrasenia, correo, cedula);
+            
+            System.out.println(ab.getUsername()+"\n"+ab.getPswd());
             System.out.println("Abonado creado.\n");
 
         } else {
